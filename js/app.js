@@ -21,10 +21,10 @@ var app = {
     reset_user: function () {
         $.post(config.restUrl + 'cuser/reset', {id: app.cuser.get('id')});
         app.stop_heartbeat();
-        if (_.isObject(app.my_offer_poller)){
+        if (_.isObject(app.my_offer_poller)) {
             app.my_offer_poller.stop();
         }
-        if (_.isObject(app.driver_poller)){
+        if (_.isObject(app.driver_poller)) {
             app.driver_poller.stop();
         }
         app.cuser = new app.models.Cuser();
@@ -67,6 +67,7 @@ function schedule_idle_local_note() {
 
 $.jGrowl.defaults.closeTemplate = '';
 $.jGrowl.defaults.position = 'center';
+
 function setupPush() {
     app.push = PushNotification.init({
         "android": {
@@ -145,214 +146,221 @@ var backboneInit = function () {
     $('#loading').hide();
 };
 var capp = {
-        initialize: function () {
-            if (isInWeb) {
-                cordova = {
-                    plugins: {
-                        notification: {
-                            local: {
-                                schedule: function () {
-                                },
-                                registerPermission: function () {
-                                },
-                                on: function () {
-                                },
-                                cancel: function () {
-                                }
+    initialize: function () {
+        if (isInWeb) {
+            cordova = {
+                plugins: {
+                    notification: {
+                        local: {
+                            schedule: function () {
+                            },
+                            registerPermission: function () {
+                            },
+                            on: function () {
+                            },
+                            cancel: function () {
                             }
                         }
                     }
-                };
-                PushNotification = {init: function () {
-                    return {on:function () {
-                        
-                    }}
-                }};
-            }
-            this.bindEvents();
+                }
+            };
+            PushNotification = {
+                init: function () {
+                    return {
+                        on: function () {
 
-            app.idle_time = 0;
-            app.idle_timer = new Timer(function () {
-                    if (Backbone.history.getFragment() !== 'request_ride' && Backbone.history.getFragment() !== 'view_riders') {
-                        app.idle_timer.resume();
-                        return;
+                        }
                     }
-                    app.idle_time += 1;
-                    // console.info('App has been running for ' + app.idle_time + 'seconds');
-                    if (app.idle_time > 0 && (app.idle_time % 300 == 0)) {
-                        app_confirm("Are you still looking for a ride?", function (response) {
-                            if (!(response == true || response == 1)) {
-                                app.router.navigate('dashboard', {trigger: true, replace: true});
-                            } else {
-                                if (_.isObject(app.request) && !_.isEmpty(app.request.get('status'))) {
-                                    //keep request alive
-                                    if (IS_LOCAL) {
-                                        app.request.save({trigger_col: moment().format('Y-MM-DD HH:mm:ss')}, {patch: true})
-                                    }
-                                    else {
-                                        app.request.save({trigger_col: moment().format('DD-MMM-YY hh.mm.ss A')}, {patch: true});
-                                    }
+                }
+            };
+        }
+        this.bindEvents();
+        if (_.isObject(device) && device.hasOwnProperty('platform')) {
+            if (device.platform === 'iOS') {
+                $('head').append( $('<link rel="stylesheet" type="text/css" />').attr('href', 'ratchet/ratchet-theme-ios.min.css') );
+            }
+        }
+        app.idle_time = 0;
+        app.idle_timer = new Timer(function () {
+                if (Backbone.history.getFragment() !== 'request_ride' && Backbone.history.getFragment() !== 'view_riders') {
+                    app.idle_timer.resume();
+                    return;
+                }
+                app.idle_time += 1;
+                // console.info('App has been running for ' + app.idle_time + 'seconds');
+                if (app.idle_time > 0 && (app.idle_time % 300 == 0)) {
+                    app_confirm("Are you still looking for a ride?", function (response) {
+                        if (!(response == true || response == 1)) {
+                            app.router.navigate('dashboard', {trigger: true, replace: true});
+                        } else {
+                            if (_.isObject(app.request) && !_.isEmpty(app.request.get('status'))) {
+                                //keep request alive
+                                if (IS_LOCAL) {
+                                    app.request.save({trigger_col: moment().format('Y-MM-DD HH:mm:ss')}, {patch: true})
+                                }
+                                else {
+                                    app.request.save({trigger_col: moment().format('DD-MMM-YY hh.mm.ss A')}, {patch: true});
                                 }
                             }
-                            app.is_notification_active = false;
-                        });
-                        schedule_idle_local_note();
-                        // cordova.plugins.notification.local.cancel(LOCAL_NOTE_IDLE_ID);
+                        }
+                        app.is_notification_active = false;
+                    });
+                    schedule_idle_local_note();
+                    // cordova.plugins.notification.local.cancel(LOCAL_NOTE_IDLE_ID);
 
-                        app.idle_time = 0;
-                        app.idle_timer.restart();
-                    }
-                    app.idle_timer.resume();
-                }, 5000 //every 5 seconds
-            );
-            if (IS_DEBUG && CLEAR_LOCAL_STORAGE) {
-                localStorage.clear();
-            }
-
-            if (_.isNull(localStorage.getItem('remember'))) {
-                localStorage.setItem('remember', true);
-            }
-
-        },
-        bindEvents: function () {
-            document.addEventListener('deviceready', this.onDeviceReady, false);
+                    app.idle_time = 0;
+                    app.idle_timer.restart();
+                }
+                app.idle_timer.resume();
+            }, 5000 //every 5 seconds
+        );
+        if (IS_DEBUG && CLEAR_LOCAL_STORAGE) {
+            localStorage.clear();
         }
-        ,
-        geolocation: {
+
+        if (_.isNull(localStorage.getItem('remember'))) {
+            localStorage.setItem('remember', true);
+        }
+
+    },
+    bindEvents: function () {
+        document.addEventListener('deviceready', this.onDeviceReady, false);
+    }
+    ,
+    geolocation: {
 // onSuccess Callback
 // This method accepts a Position object, which contains the
 // current GPS coordinates
 //
-            onSuccess: function (position) {
-                var extra_param = {};
-                console.log('Latitude: ' + position.coords.latitude + '\n' +
-                    'Longitude: ' + position.coords.longitude + '\n' +
-                    'Altitude: ' + position.coords.altitude + '\n' +
-                    'Accuracy: ' + position.coords.accuracy + '\n' +
-                    'Altitude Accuracy: ' + position.coords.altitudeAccuracy + '\n' +
-                    'Heading: ' + position.coords.heading + '\n' +
-                    'Speed: ' + position.coords.speed + '\n' +
-                    'Timestamp: ' + position.timestamp + '\n');
-                current_pos = position.coords;
-                var apns_device_reg_id = localStorage.getItem('registrationId');
-                if (!_.isNull(apns_device_reg_id)){
-                    extra_param.apns_device_reg_id = apns_device_reg_id;
-                }
-                //save it to cur pos. Save lat lng to cur_user and publish to API
-                if (_.isObject(app.cuser)) {
-                    app.cuser.save($.extend({lat: current_pos.latitude, lng: current_pos.longitude, status: app.status}, {patch: true, forceRefresh: true}, extra_param));
-                }
-                if (_.isObject(app.request_poller)){
-                    app.request_poller.options.data.cur_lat = current_pos.latitude;
-                    app.request_poller.options.data.cur_lng = current_pos.longitude;
-                }
-                if (_.isObject(app.driver_poller)){
-                    app.driver_poller.options.data.cur_lat = current_pos.latitude;
-                    app.driver_poller.options.data.cur_lng = current_pos.longitude;
-                }
+        onSuccess: function (position) {
+            var extra_param = {};
+            console.log('Latitude: ' + position.coords.latitude + '\n' +
+                'Longitude: ' + position.coords.longitude + '\n' +
+                'Altitude: ' + position.coords.altitude + '\n' +
+                'Accuracy: ' + position.coords.accuracy + '\n' +
+                'Altitude Accuracy: ' + position.coords.altitudeAccuracy + '\n' +
+                'Heading: ' + position.coords.heading + '\n' +
+                'Speed: ' + position.coords.speed + '\n' +
+                'Timestamp: ' + position.timestamp + '\n');
+            current_pos = position.coords;
+            var apns_device_reg_id = localStorage.getItem('registrationId');
+            if (!_.isNull(apns_device_reg_id)) {
+                extra_param.apns_device_reg_id = apns_device_reg_id;
+            }
+            //save it to cur pos. Save lat lng to cur_user and publish to API
+            if (_.isObject(app.cuser)) {
+                app.cuser.save($.extend({lat: current_pos.latitude, lng: current_pos.longitude, status: app.status}, {patch: true, forceRefresh: true}, extra_param));
+            }
+            if (_.isObject(app.request_poller)) {
+                app.request_poller.options.data.cur_lat = current_pos.latitude;
+                app.request_poller.options.data.cur_lng = current_pos.longitude;
+            }
+            if (_.isObject(app.driver_poller)) {
+                app.driver_poller.options.data.cur_lat = current_pos.latitude;
+                app.driver_poller.options.data.cur_lng = current_pos.longitude;
+            }
 
-            },
+        },
 // onError Callback receives a PositionError object
 //
-            onError: function (error) {
-                alert('code: ' + error.code + '\n' +
-                    'message: ' + error.message + '\n');
-            }
-        },
-        onDeviceReady: function () {
-            window.addEventListener('orientationchange', doOnOrientationChange);
-            // Initial execution if needed
-            doOnOrientationChange();
-            // cordova.plugins.notification.local.on('click', function (notification) {
-            //     console.info(notification);
-            // });
-            setupPush();
-            document.addEventListener("pause", function () {
-                app.state = 'background';
-                schedule_idle_local_note();
-            }, false);
-            document.addEventListener("resume", function () {
-                app.state = 'foreground';
-                //cordova.plugins.notification.local.clear(LOCAL_NOTE_IDLE_ID);
-            }, false);
-            cordova.plugins.notification.local.registerPermission(function (granted) {
-                console.log("Local notification is " + granted);
-            });
+        onError: function (error) {
+            alert('code: ' + error.code + '\n' +
+                'message: ' + error.message + '\n');
+        }
+    },
+    onDeviceReady: function () {
+        window.addEventListener('orientationchange', doOnOrientationChange);
+        // Initial execution if needed
+        doOnOrientationChange();
+        // cordova.plugins.notification.local.on('click', function (notification) {
+        //     console.info(notification);
+        // });
+        setupPush();
+        document.addEventListener("pause", function () {
+            app.state = 'background';
             schedule_idle_local_note();
+        }, false);
+        document.addEventListener("resume", function () {
+            app.state = 'foreground';
+            //cordova.plugins.notification.local.clear(LOCAL_NOTE_IDLE_ID);
+        }, false);
+        cordova.plugins.notification.local.registerPermission(function (granted) {
+            console.log("Local notification is " + granted);
+        });
+        schedule_idle_local_note();
 
-            // START idle notification monitoring functions 
-            // ===================================================
-            // double check status BEFORE notifying
-            cordova.plugins.notification.local.on("trigger", function (notification) {
-                if (notification.id == LOCAL_NOTE_IDLE_ID && _.isObject(app.Request_ride_view) && app.Request_ride_view.status == 'request_sent') {
-                    console.log("schedule_idle_local_note trigger -- pass!");
-                    return;
-                } else {
-                    console.log("schedule_idle_local_note trigger -- fail!");
-                    cordova.plugins.notification.local.cancel(LOCAL_NOTE_IDLE_ID);
-                    return false;
-                }
-            });
-            // schedule the next alert if the user responds to the notification
-            cordova.plugins.notification.local.on("click", function (notification) {
-                var now = new Date().getTime(),
-                    scheduled_time_for_notification = new Date(now + LOCAL_NOTE_IDLE_DELAY);
+        // START idle notification monitoring functions
+        // ===================================================
+        // double check status BEFORE notifying
+        cordova.plugins.notification.local.on("trigger", function (notification) {
+            if (notification.id == LOCAL_NOTE_IDLE_ID && _.isObject(app.Request_ride_view) && app.Request_ride_view.status == 'request_sent') {
+                console.log("schedule_idle_local_note trigger -- pass!");
+                return;
+            } else {
+                console.log("schedule_idle_local_note trigger -- fail!");
+                cordova.plugins.notification.local.cancel(LOCAL_NOTE_IDLE_ID);
+                return false;
+            }
+        });
+        // schedule the next alert if the user responds to the notification
+        cordova.plugins.notification.local.on("click", function (notification) {
+            var now = new Date().getTime(),
+                scheduled_time_for_notification = new Date(now + LOCAL_NOTE_IDLE_DELAY);
 
-                if (notification.id == LOCAL_NOTE_IDLE_ID) {
-                    cordova.plugins.notification.local.schedule({
-                        id: LOCAL_NOTE_IDLE_ID,
-                        title: "CarpoolNow App has been idle",
-                        text: "Are you still looking for a ride?",
-                        at: scheduled_time_for_notification
-                    });
-                    console.log("schedule_idle_local_note trigger -- RESTARTED");
-                }
-            });
-            // ===================================================
-            // END idle notification monitoring functions 
+            if (notification.id == LOCAL_NOTE_IDLE_ID) {
+                cordova.plugins.notification.local.schedule({
+                    id: LOCAL_NOTE_IDLE_ID,
+                    title: "CarpoolNow App has been idle",
+                    text: "Are you still looking for a ride?",
+                    at: scheduled_time_for_notification
+                });
+                console.log("schedule_idle_local_note trigger -- RESTARTED");
+            }
+        });
+        // ===================================================
+        // END idle notification monitoring functions
 
-            capp.receivedEvent('deviceready');
-        }
-        ,
-        position: {
-            stateCode: ""
-        }
-        ,
-        receivedEvent: function (id) {
-            console.log('Received Event: ' + id);
-            backboneInit();
-            // StatusBar.hide();
-            $('body').height($('body').height() + 20);
-        }
-        ,
-        event_bus: _({}).extend(Backbone.Events),
-        gMaps: {
-            api_key: 'AIzaSyC1RpnsU0y0yPoQSg1G_GyvmBmO5i1UH5E',
-            url: 'https://maps.googleapis.com/maps/api/geocode/json?key=' + GMAP_KEY,
-            directions_url: 'https://maps.googleapis.com/maps/api/directions/json?key=' + GMAP_KEY
-        }
-        ,
-        onGeolocationSuccess: function (position) {
-            capp.position = position;
-            console.log('position: ' + capp.position);
-            var lat = parseFloat(position.coords.latitude);
-            var lng = parseFloat(position.coords.longitude);
-            $.getJSON(capp.gMaps.url + '&latlng=' + lat + ',' + lng + '&result_type=administrative_area_level_1', function (data) {
-                if (data.status == "OK") {
-                    if (data.results != {}) {
-                        capp.position.stateCode = data.results[0].address_components[0].short_name;
-                        capp.event_bus.trigger('iGotLocation');
-                    }
-                }
-            });
-        }
-        ,
-        onGeoLocationError: function onError(error) {
-            console.log('code: ' + error.code + '\n' + 'message: ' + error.message + '\n');
-        }
-
+        capp.receivedEvent('deviceready');
     }
-    ;
+    ,
+    position: {
+        stateCode: ""
+    }
+    ,
+    receivedEvent: function (id) {
+        console.log('Received Event: ' + id);
+        backboneInit();
+        // StatusBar.hide();
+        $('body').height($('body').height() + 20);
+    }
+    ,
+    event_bus: _({}).extend(Backbone.Events),
+    gMaps: {
+        api_key: 'AIzaSyC1RpnsU0y0yPoQSg1G_GyvmBmO5i1UH5E',
+        url: 'https://maps.googleapis.com/maps/api/geocode/json?key=' + GMAP_KEY,
+        directions_url: 'https://maps.googleapis.com/maps/api/directions/json?key=' + GMAP_KEY
+    }
+    ,
+    onGeolocationSuccess: function (position) {
+        capp.position = position;
+        console.log('position: ' + capp.position);
+        var lat = parseFloat(position.coords.latitude);
+        var lng = parseFloat(position.coords.longitude);
+        $.getJSON(capp.gMaps.url + '&latlng=' + lat + ',' + lng + '&result_type=administrative_area_level_1', function (data) {
+            if (data.status == "OK") {
+                if (data.results != {}) {
+                    capp.position.stateCode = data.results[0].address_components[0].short_name;
+                    capp.event_bus.trigger('iGotLocation');
+                }
+            }
+        });
+    }
+    ,
+    onGeoLocationError: function onError(error) {
+        console.log('code: ' + error.code + '\n' + 'message: ' + error.message + '\n');
+    }
+
+};
 if (document.URL.indexOf('http://') === -1 && document.URL.indexOf('https://') === -1) {
     isInWeb = false;
     capp.initialize();
@@ -407,7 +415,7 @@ app_confirm = function (message, callback, title) {
             return true;
         }
         app.is_notification_active = true;
-        if (navigator.notification && navigator.notification.confirm){
+        if (navigator.notification && navigator.notification.confirm) {
             navigator.notification.confirm(message, callback, title, ["Yes", "No"]);
         } else {
             response = confirm(message);
