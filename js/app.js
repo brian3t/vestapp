@@ -175,7 +175,7 @@ var capp = {
             };
         }
         this.bindEvents();
-        if (_.isObject(device) && device.hasOwnProperty('platform')) {
+        if (typeof device !== 'undefined' && _.isObject(device) && device.hasOwnProperty('platform')) {
             if (device.platform === 'iOS') {
                 $('head').append( $('<link rel="stylesheet" type="text/css" />').attr('href', 'ratchet/ratchet-theme-ios.min.css') );
             }
@@ -284,15 +284,15 @@ var capp = {
             app.state = 'foreground';
             //cordova.plugins.notification.local.clear(LOCAL_NOTE_IDLE_ID);
         }, false);
-        cordova.plugins.notification.local.registerPermission(function (granted) {
+/*        cordova.plugins.notification.local.registerPermission(function (granted) {
             console.log("Local notification is " + granted);
         });
-        schedule_idle_local_note();
+        schedule_idle_local_note();*/
 
         // START idle notification monitoring functions
         // ===================================================
         // double check status BEFORE notifying
-        cordova.plugins.notification.local.on("trigger", function (notification) {
+        /*cordova.plugins.notification.local.on("trigger", function (notification) {
             if (notification.id == LOCAL_NOTE_IDLE_ID && _.isObject(app.Request_ride_view) && app.Request_ride_view.status == 'request_sent') {
                 console.log("schedule_idle_local_note trigger -- pass!");
                 return;
@@ -316,7 +316,7 @@ var capp = {
                 });
                 console.log("schedule_idle_local_note trigger -- RESTARTED");
             }
-        });
+        });*/
         // ===================================================
         // END idle notification monitoring functions
 
