@@ -44,7 +44,7 @@ app.models.OfferCollection = Backbone.Collection.extend({
         }
         console.info(new_offer);
         var sound = 'file://beep.caf';
-        if (typeof device !== 'undefined' &&  _.isObject(device) && device.hasOwnProperty('platform') && device.platform == 'Android'){
+        if (typeof device !== 'undefined' &&  _.isObject(device) && device.hasOwnProperty('platform') && device.platform === 'Android'){
             sound =  'file://sound.mp3';
         }
         cordova.plugins.notification.local.schedule({

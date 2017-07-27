@@ -175,11 +175,7 @@ var capp = {
             };
         }
         this.bindEvents();
-        if (typeof device !== 'undefined' && _.isObject(device) && device.hasOwnProperty('platform')) {
-            if (device.platform === 'iOS') {
-                $('head').append( $('<link rel="stylesheet" type="text/css" />').attr('href', 'ratchet/ratchet-theme-ios.min.css') );
-            }
-        }
+
         app.idle_time = 0;
         app.idle_timer = new Timer(function () {
                 if (Backbone.history.getFragment() !== 'request_ride' && Backbone.history.getFragment() !== 'view_riders') {
@@ -269,6 +265,17 @@ var capp = {
         }
     },
     onDeviceReady: function () {
+        if (typeof device !== 'undefined' && _.isObject(device) && device.hasOwnProperty('platform')) {
+            if (device.platform === 'iOS') {
+                $('head').append( $('<link rel="stylesheet" type="text/css" />').attr('href', 'ratchet/ratchet-theme-ios.min.css') );
+            }
+            if (device.platform === 'Android') {
+                $('head').append( $('<link rel="stylesheet" type="text/css" />').attr('href', 'ratchet/ratchet-theme-android.min.css') );
+            }
+        }
+        if (isInWeb){
+            $('head').append( $('<link rel="stylesheet" type="text/css" />').attr('href', 'ratchet/ratchet-theme-ios.min.css') );
+        }
         window.addEventListener('orientationchange', doOnOrientationChange);
         // Initial execution if needed
         doOnOrientationChange();
