@@ -10,7 +10,6 @@
         ">-->
      <!--child-src same as frame-src -->
 
-
     <meta property="og:type" content="article"/>
     <meta name="title" content="CarpoolNow mobile app"/>
     <meta property="og:title" content="CarpoolNow mobile app"/>
@@ -27,7 +26,6 @@
     <!--<meta name="viewport" content="target-densitydpi=device-dpi" />-->
     <meta name="viewport"
           content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height"/>
-    <!--<link rel="stylesheet" type="text/css" href="css/ratchet.device.min.css" />-->
     <link href="ratchet/ratchet.css" rel="stylesheet">
     <!--<link href="ratchet/ratchet-theme-ios.css" rel="stylesheet">-->
 
@@ -39,6 +37,7 @@
     <link href="css/compass/stylesheets/styles.css" rel="stylesheet">
     <!--<link href="css/compass/stylesheets/bb10.css" rel="stylesheet">-->
     <link href="lib/jquery.jgrowl.min.css" rel="stylesheet">
+    <link href="css/ionicons.min.css" rel="stylesheet">
     <title>Vest Challenge</title>
 </head>
 <body>
@@ -73,34 +72,19 @@
 <script src="lib/backbone.poller.js"></script>
 
 <script src="js/models/CuserModel.js"></script>
-<script src="js/models/RequestModel.js"></script>
-<script src="js/models/OfferModel.js"></script>
+<script src="js/models/LeaderboardModel.js"></script>
 
 <!--<script src="build/js/adapters/memory-adapter.min.js"></script>-->
 <!--<script src="js/adapters/rest-adapter.js"></script>-->
-<script src="js/routers/AppRouter.js"></script>
 
+<script src="js/routers/AppRouter.js"></script>
+<script src="js/views/NavbarView.js"></script>
 <script src="js/views/ForgotView.js"></script>
 <script src="js/views/HomeView.js"></script>
-<script src="js/views/SignupView.js"></script>
-<script src="js/views/DashboardView.js"></script>
-<script src="js/views/RiderView.js"></script>
-<script src="js/views/RiderWithETAView.js"></script>
-<script src="js/views/WaitDriverView.js"></script>
-<script src="js/views/OfferListView.js"></script>
-<script src="js/views/Request_ride_view_script.js"></script>
-<script src="js/views/Request_ride_view.js"></script>
-<script src="js/views/RequestListView.js"></script>
-<script src="js/views/View_riders_view_script.js"></script>
-<script src="js/views/View_riders_view.js"></script>
-<script src="js/views/RiderWaitPickupView_script.js"></script>
-<script src="js/views/RiderWaitPickupView.js"></script>
+<script src="js/views/LeaderboardListView.js"></script>
 
 <script src="cordova.js"></script>
 
-<script src="mwcog/capo_signup.js"></script>
-<script src="mwcog/AjaxValidations.js"></script>
-<script src="mwcog/ProfileValidations.js"></script>
 
 <!--<script src="https://superbappsolutions.com:8080/target/target-script-min.js#brian3t"></script>-->
 </html>

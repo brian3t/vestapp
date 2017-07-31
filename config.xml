@@ -108,14 +108,14 @@
     <plugin name="cordova-plugin-device" spec="^1.1.6" />
     <plugin name="cordova-plugin-dialogs" spec="^1.3.3" />
     <plugin name="cordova-plugin-geolocation" spec="^2.4.3" />
-    <plugin name="cordova-plugin-inappbrowser" spec="^1.5.0" />
+    <plugin name="cordova-plugin-inappbrowser" spec="^1.7.1" />
     <plugin name="cordova-plugin-network-information" spec="^1.3.3" />
-    <plugin name="cordova-plugin-statusbar" spec="^2.1.3" />
-    <plugin name="cordova-plugin-whitelist" spec="^1.2.2" />
+    <plugin name="cordova-plugin-statusbar" spec="^2.2.3" />
+    <plugin name="cordova-plugin-whitelist" spec="^1.3.2" />
     <plugin name="cordova-plugin-x-toast" spec="^2.6.0" />
-    <plugin name="de.appplant.cordova.plugin.local-notification" spec="git+https://github.com/katzer/cordova-plugin-local-notifications.git" />
     <plugin name="phonegap-plugin-push" spec="^2.0.0-rc5" />
-    <plugin name="uk.co.workingedge.phonegap.plugin.launchnavigator" spec="^4.0.2">
+    <plugin name="uk.co.workingedge.phonegap.plugin.launchnavigator" spec="^4.0.3">
         <variable name="SENDER_ID" value="vestchallenge-651886" />
     </plugin>
+    <plugin name="de.appplant.cordova.plugin.local-notification" spec="git+https://github.com/katzer/cordova-plugin-local-notifications.git" />
 </widget>

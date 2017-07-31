@@ -1,10 +1,12 @@
-app.views.HomeView = Backbone.View.extend({
+app.views.LeaderboardListView = Backbone.View.extend({
+        model: {},
         initialize: function () {
+            this.model = app.leaderboard_collection;
             this.render();
         },
-        leaderboard_list_view: {},
+        className: 'table-view',
         render: function () {
-            this.$el.html(this.template());
+            this.$el.html(this.template({models: this.model.models}));
             this.$username = this.$el.find('input#username');
             this.$password = this.$el.find('input#password');
             this.remember = localStorage.getItem('remember');
@@ -14,10 +16,6 @@ app.views.HomeView = Backbone.View.extend({
             this.save_load_credential();
             app.today = moment();
             app.first_this_month = moment().startOf('month');
-            this.$el.find('#first_this_month').html(app.first_this_month.format('MM-DD'));
-            this.$el.find('#today').html(app.today.format('MM-DD'));
-            this.leaderboard_list_view = new app.views.LeaderboardListView({model: app.models.leaderboard_collection, parent_view: self});
-            this.$el.find('ul.table-view').html(this.leaderboard_list_view.render().el);
             return this;
         },
 

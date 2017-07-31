@@ -25,12 +25,11 @@ html {
 }
 
 body {
-  font-family: Arial;
+  font-family: Arial, sans-serif;
   font-size: 12pt;
   background-color: inherit;
   position: absolute;
   min-height: 100%;
-  color: white;
 }
 
 button, input, input:-webkit-autofill, textarea {
@@ -316,27 +315,16 @@ div#ad {
 
 .content.home {
   text-align: center;
-  background-color: rgba(0, 0, 85, 0.55);
 }
 
 .content.dashboard {
-  background-color: rgba(0, 0, 0, 0.2);
 }
 
 div.page {
   background-size: cover;
 }
 
-div.page[current_view=home] {
-  background-image: url("../../../img/bk1.png");
-}
-
-div.page[current_view=dashboard] {
-  background-image: url("../../../img/bk2.png");
-}
-
 div.page[current_view=signup] {
-  background-color: rgba(0, 0, 85, .65);
   button {
     margin: 12px 0;
   }

@@ -1,14 +1,16 @@
-const IS_DEBUG = false;
+var IS_DEBUG = false;
 // const IS_DEBUG = true;
-const GMAP_KEY = 'AIzaSyC1RpnsU0y0yPoQSg1G_GyvmBmO5i1UH5E';
+var GMAP_KEY = 'AIzaSyC1RpnsU0y0yPoQSg1G_GyvmBmO5i1UH5E';
 // const CLEAR_LOCAL_STORAGE = true;
-const CLEAR_LOCAL_STORAGE = false;
-const LOCAL_NOTE_IDLE_ID = 8;
-const LOCAL_NOTE_IDLE_DELAY = 10 * 1000 * 60; // 10 minutes
+var CLEAR_LOCAL_STORAGE = false;
+var LOCAL_NOTE_IDLE_ID = 8;
+var LOCAL_NOTE_IDLE_DELAY = 10 * 1000 * 60; // 10 minutes
 
 
 var app = {
     views: {}, models: {}, routers: {}, utils: {}, adapters: {}, request_markers: [], driver_markers: [],
+    today: moment(),
+    first_this_month: {},
     timeout_count: 0,//for ajax timeout ()
     heartbeat: {interval: -1},
     start_heartbeat: function () {
@@ -63,7 +65,6 @@ function schedule_idle_local_note() {
         // end
     }
 }
-
 
 $.jGrowl.defaults.closeTemplate = '';
 $.jGrowl.defaults.position = 'center';
@@ -120,16 +121,11 @@ function setupPush() {
 
 var backboneInit = function () {
     app.router = new app.routers.AppRouter();
-    app.utils.templates.load(["HomeView", "SignupView", "DashboardView", "ForgotView", "RiderView", "RiderWithETAView", "WaitDriverView", "OfferListItemView", "Request_ride_view", 'RiderWaitPickupView', 'RequestListItemView', "View_riders_view"], function () {
+    app.utils.templates.load(["NavbarView", "LeaderboardListView", "HomeView", "ForgotView"], function () {
         app.router = new app.routers.AppRouter();
         Backbone.history.stop();
         Backbone.history.start();
     });
-    app.cur_rider = new app.models.Cuser;
-    app.cur_rider.sync = function () {
-        return false
-    };
-    app.cur_driver = new app.models.Cuser;
     $.ajaxSetup({cache: true});
     $(document).ajaxStart(function () {
         $('.page').addClass('whirl no-overlay traditional');
@@ -140,9 +136,7 @@ var backboneInit = function () {
         // $('div.content').css({opacity: 1})
     });
     isInWeb = (typeof isInWeb !== "boolean" ? "true" : isInWeb);
-    app.offer_collection = new app.models.OfferCollection();
-    app.request_collection = new app.models.RequestCollection();
-    app.driver_collection = new app.models.DriverCollection();
+    app.leaderboard_collection = new app.models.LeaderboardCollection();
     $('#loading').hide();
 };
 var capp = {
@@ -170,7 +164,7 @@ var capp = {
                         on: function () {
 
                         }
-                    }
+                    };
                 }
             };
         }
@@ -184,15 +178,15 @@ var capp = {
                 }
                 app.idle_time += 1;
                 // console.info('App has been running for ' + app.idle_time + 'seconds');
-                if (app.idle_time > 0 && (app.idle_time % 300 == 0)) {
+                if (app.idle_time > 0 && (app.idle_time % 300 === 0)) {
                     app_confirm("Are you still looking for a ride?", function (response) {
-                        if (!(response == true || response == 1)) {
+                        if (!(response === true || response === 1)) {
                             app.router.navigate('dashboard', {trigger: true, replace: true});
                         } else {
                             if (_.isObject(app.request) && !_.isEmpty(app.request.get('status'))) {
                                 //keep request alive
                                 if (IS_LOCAL) {
-                                    app.request.save({trigger_col: moment().format('Y-MM-DD HH:mm:ss')}, {patch: true})
+                                    app.request.save({trigger_col: moment().format('Y-MM-DD HH:mm:ss')}, {patch: true});
                                 }
                                 else {
                                     app.request.save({trigger_col: moment().format('DD-MMM-YY hh.mm.ss A')}, {patch: true});
@@ -221,8 +215,7 @@ var capp = {
     },
     bindEvents: function () {
         document.addEventListener('deviceready', this.onDeviceReady, false);
-    }
-    ,
+    },
     geolocation: {
 // onSuccess Callback
 // This method accepts a Position object, which contains the
@@ -245,7 +238,10 @@ var capp = {
             }
             //save it to cur pos. Save lat lng to cur_user and publish to API
             if (_.isObject(app.cuser)) {
-                app.cuser.save($.extend({lat: current_pos.latitude, lng: current_pos.longitude, status: app.status}, {patch: true, forceRefresh: true}, extra_param));
+                app.cuser.save($.extend({lat: current_pos.latitude, lng: current_pos.longitude, status: app.status}, {
+                    patch: true,
+                    forceRefresh: true
+                }, extra_param));
             }
             if (_.isObject(app.request_poller)) {
                 app.request_poller.options.data.cur_lat = current_pos.latitude;
@@ -267,14 +263,14 @@ var capp = {
     onDeviceReady: function () {
         if (typeof device !== 'undefined' && _.isObject(device) && device.hasOwnProperty('platform')) {
             if (device.platform === 'iOS') {
-                $('head').append( $('<link rel="stylesheet" type="text/css" />').attr('href', 'ratchet/ratchet-theme-ios.min.css') );
+                $('head').append($('<link rel="stylesheet" type="text/css" />').attr('href', 'ratchet/ratchet-theme-ios.css'));
             }
             if (device.platform === 'Android') {
-                $('head').append( $('<link rel="stylesheet" type="text/css" />').attr('href', 'ratchet/ratchet-theme-android.min.css') );
+                $('head').append($('<link rel="stylesheet" type="text/css" />').attr('href', 'ratchet/ratchet-theme-android.min.css'));
             }
         }
-        if (isInWeb){
-            $('head').append( $('<link rel="stylesheet" type="text/css" />').attr('href', 'ratchet/ratchet-theme-ios.min.css') );
+        if (isInWeb) {
+            $('head').append($('<link rel="stylesheet" type="text/css" />').attr('href', 'ratchet/ratchet-theme-ios.css'));
         }
         window.addEventListener('orientationchange', doOnOrientationChange);
         // Initial execution if needed
@@ -291,10 +287,10 @@ var capp = {
             app.state = 'foreground';
             //cordova.plugins.notification.local.clear(LOCAL_NOTE_IDLE_ID);
         }, false);
-/*        cordova.plugins.notification.local.registerPermission(function (granted) {
-            console.log("Local notification is " + granted);
-        });
-        schedule_idle_local_note();*/
+        /*        cordova.plugins.notification.local.registerPermission(function (granted) {
+                    console.log("Local notification is " + granted);
+                });
+                schedule_idle_local_note();*/
 
         // START idle notification monitoring functions
         // ===================================================
@@ -328,26 +324,22 @@ var capp = {
         // END idle notification monitoring functions
 
         capp.receivedEvent('deviceready');
-    }
-    ,
+    },
     position: {
         stateCode: ""
-    }
-    ,
+    },
     receivedEvent: function (id) {
         console.log('Received Event: ' + id);
         backboneInit();
         // StatusBar.hide();
         $('body').height($('body').height() + 20);
-    }
-    ,
+    },
     event_bus: _({}).extend(Backbone.Events),
     gMaps: {
         api_key: 'AIzaSyC1RpnsU0y0yPoQSg1G_GyvmBmO5i1UH5E',
         url: 'https://maps.googleapis.com/maps/api/geocode/json?key=' + GMAP_KEY,
         directions_url: 'https://maps.googleapis.com/maps/api/directions/json?key=' + GMAP_KEY
-    }
-    ,
+    },
     onGeolocationSuccess: function (position) {
         capp.position = position;
         console.log('position: ' + capp.position);
@@ -361,8 +353,7 @@ var capp = {
                 }
             }
         });
-    }
-    ,
+    },
     onGeoLocationError: function onError(error) {
         console.log('code: ' + error.code + '\n' + 'message: ' + error.message + '\n');
     }
@@ -375,7 +366,6 @@ if (document.URL.indexOf('http://') === -1 && document.URL.indexOf('https://') =
 else {
     isInWeb = true;
     $(document).ready(function () {
-        backboneInit();
         var event; // The custom event that will be created
 
         if (document.createEvent) {
@@ -401,7 +391,7 @@ Backbone.LocalStorage.setPrefix('capo');
 
 app_alert = function (message, alertCallback, title, buttonName) {
     if (buttonName === null) {
-        buttonName = "OK"
+        buttonName = "OK";
     }
     if (isInWeb) {
         alert(message);
@@ -467,14 +457,13 @@ function publish_location(cuser_id, lat, lng, address_realtime) {
         success: function (data) {
             console.info('Current location published');
         }
-    })
+    });
 }
 
 function testlocal() {
     var now = new Date().getTime(),
         _5_sec_from_now = new Date(now + 5 * 1000);
     var sound = device.platform == 'Android' ? 'file://sound.mp3' : 'file://beep.caf';
-
 
     cordova.plugins.notification.local.schedule({
         id: 1,

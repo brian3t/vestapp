@@ -4,6 +4,7 @@ app.routers.AppRouter = Backbone.Router.extend({
         "": "home",
         "drugs/:id": "drugDetails",
         "dashboard": "dashboard",
+        "forgot": "forgot",
         "view_riders": "view_riders",
         "request_ride": "request_ride"
         // ,"formulary/:f_id/:drug_id/:state": "formularyDetails"
@@ -16,18 +17,14 @@ app.routers.AppRouter = Backbone.Router.extend({
                 var previous_view = $(this.$currentPage).attr('current_view');
                 var result = _super.apply(this, arguments);
                 console.log("Assign class after sliding");
-                var current_view = Backbone.history.getFragment() == '' ? 'home' : Backbone.history.getFragment();
+                var current_view = Backbone.history.getFragment() === '' ? 'home' : Backbone.history.getFragment();
                 $('div.page').attr('current_view', current_view);
-
-                if (previous_view == 'request_ride' && app.offer_poller) {
-                    app.offer_poller.stop();
+                if (!app.navbarView) {
+                    app.navbarView = new app.views.NavbarView();
                 }
-                if (previous_view == 'view_riders' && app.request_poller) {
-                    app.request_poller.stop();
-                }
-                $('.page').removeClass('whirl no-overlay traditional');
+                $('.page').removeClass('whirl no-overlay traditional').append(app.navbarView.$el);
                 return result;
-            }
+            };
         })(app.slider.slidePage);
         app.slider.slidePage = app.slider.slidePageSp;
     },
