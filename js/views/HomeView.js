@@ -16,8 +16,6 @@ app.views.HomeView = Backbone.View.extend({
             app.first_this_month = moment().startOf('month');
             this.$el.find('#first_this_month').html(app.first_this_month.format('MM-DD'));
             this.$el.find('#today').html(app.today.format('MM-DD'));
-            this.leaderboard_list_view = new app.views.LeaderboardListView({model: app.models.leaderboard_collection, parent_view: self});
-            this.$el.find('ul.table-view').html(this.leaderboard_list_view.render().el);
             return this;
         },
 
@@ -178,6 +176,8 @@ app.views.HomeView = Backbone.View.extend({
             } else {
                 $('#remember').removeClass('active');
             }
+            this.leaderboard_list_view = new app.views.LeaderboardListView({model: app.models.leaderboard_collection, parent_view: self});
+            this.$el.find('ul.table-view').html(this.leaderboard_list_view.render().el);
         }
     },
     {

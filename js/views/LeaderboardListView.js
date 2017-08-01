@@ -1,10 +1,13 @@
 app.views.LeaderboardListView = Backbone.View.extend({
         model: {},
         initialize: function () {
-            this.model = app.leaderboard_collection;
-            this.render();
+            var self = this;
+            this.model = app.models.leaderboard_collection;
+            this.listenTo(this.model, 'change', this.render());
         },
-        className: 'table-view',
+        tagName: 'ul',
+        id: 'leaderboard_ul',
+        parentView: null,
         render: function () {
             this.$el.html(this.template({models: this.model.models}));
             this.$username = this.$el.find('input#username');

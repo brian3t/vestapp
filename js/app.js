@@ -34,11 +34,6 @@ var app = {
 };
 var current_pos = {};
 
-var config = {
-    // restUrl: "https://api.carpoolnow.mediabeef.com/v1/",
-    restUrl: 'https://api.carpoolnow.commuterconnections.org/v1/',
-    commuterUrl: 'https://tdm.commuterconnections.org/mwcog/'
-};
 if (typeof IS_LOCAL !== "undefined" && IS_LOCAL) {
     // config.restUrl = 'https://api.capoapi/v1/';
 }
@@ -136,7 +131,7 @@ var backboneInit = function () {
         // $('div.content').css({opacity: 1})
     });
     isInWeb = (typeof isInWeb !== "boolean" ? "true" : isInWeb);
-    app.leaderboard_collection = new app.models.LeaderboardCollection();
+    app.models.leaderboard_collection = new app.models.LeaderboardCollection();
     $('#loading').hide();
 };
 var capp = {
