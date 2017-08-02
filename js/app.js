@@ -133,6 +133,7 @@ var backboneInit = function () {
     isInWeb = (typeof isInWeb !== "boolean" ? "true" : isInWeb);
     app.models.leaderboard_collection = new app.models.LeaderboardCollection();
     $('#loading').hide();
+    app.models.leaderboard_collection.fetch();
 };
 var capp = {
     initialize: function () {

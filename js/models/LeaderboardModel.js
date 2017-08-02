@@ -8,7 +8,6 @@ app.models.Leaderboard = Backbone.Model.extend({
 
         toJSON: function() {
             var j = _(this.attributes).clone();
-            j.name_initial = this.name_initial();
             return j;
         }
     },

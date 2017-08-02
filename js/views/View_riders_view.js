@@ -236,7 +236,7 @@ app.views.View_riders_view = Backbone.View.extend({
         );
     },
     clear_rider_route: function () {
-        if (map.directionsDisplay != null) {
+        if (map.directionsDisplay !== null) {
             map.directionsDisplay.setMap(null);
             map.directionsDisplay = null;
         }
