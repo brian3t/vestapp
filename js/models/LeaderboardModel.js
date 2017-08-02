@@ -1,24 +1,23 @@
 app.models.Leaderboard = Backbone.Model.extend({
         idAttribute: 'cuser_id',
-
+        sortBy: 'rank',
         initialize: function () {
         },
         urlRoot: config.restUrl + 'general/leaderboard',
-        localStorage: false,
-
+        localStorage: false/*,
         toJSON: function() {
             var j = _(this.attributes).clone();
             return j;
-        }
+        }*/
     },
     {
         cuser_id: null,
-        username:null,
+        username: null,
         name: null,
         city: null,
-        state: null,
-        ai_point: null,
-        point: null
+        state_abbr: null,
+        point: null,
+        rank: null
     }
 );
 

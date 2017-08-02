@@ -7,6 +7,7 @@ app.views.LeaderboardListView = Backbone.View.extend({
         },
         tagName: 'ul',
         id: 'leaderboard_ul',
+        className: 'table-view',
         parentView: null,
         render: function () {
             this.$el.html(this.template({models: this.model.models}));
