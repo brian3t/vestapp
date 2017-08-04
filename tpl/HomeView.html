@@ -4,7 +4,19 @@
 <div class="content home">
     <div id="leaderboard_wrapper">
     </div>
+    <a id="login_a" href="#login_modal" class="btn">aaaa bbb</a>
+    <div id="login_modal" class="modal">
+        <header class="bar bar-nav">
+            <a class="icon icon-close pull-right" href="#login_modal"></a>
+            <h1 class="title">Login</h1>
+        </header>
+
+        <div class="content">
+            <p class="content-padded">The contents of my modal go here. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut.</p>
+        </div>
+    </div>
 </div>
+
 <script>
     var homeview_class = app.views.HomeView;
     homeview_class.username = window.localStorage.getItem("username");
