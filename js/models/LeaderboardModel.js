@@ -29,7 +29,7 @@ app.models.LeaderboardCollection = Backbone.Collection.extend({
         this.on('remove', this.check_is_offer_list_empty, this);
     },
     new_leader: function (new_leader) {
-        console.info(new_leader);
+        // console.info(new_leader);
     },
     check_is_offer_list_empty: function () {
         var list = this.size();

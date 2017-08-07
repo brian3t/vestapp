@@ -1,4 +1,6 @@
-"use strict";
+(function () {
+    "use strict";
+})();
 app.utils.misc = (function () {
     var USSTATES = {
             "AL": "Alabama",
@@ -61,29 +63,16 @@ app.utils.misc = (function () {
             "WI": "Wisconsin",
             "WY": "Wyoming"
         },
-        bindModal = function () {
-            // $('.modal-js').each(function () {
-            //     $(this).click(function () {
-            //         $('#' + $(this).data('target')).addClass("active");
-            $('div.modal>header>a').each(function () {
-                $(this).click(function () {
-                    $(this).parent().parent('div.modal').removeClass("active");
-                });
-            });
-            // });
-            //
-            // });
-
-        },
         applyInAppBrowser = function (href) {
-            if (href == "" || (typeof href == "undefined")) {
+            if (href === "" || (typeof href == "undefined")) {
                 return;
             }
+            var ref = null;
             if ((href.indexOf('.pdf') !== -1) || (href.indexOf('.doc') !== -1)) {
-                var ref = window.open('https://docs.google.com/viewer?url=' + href + '&embedded=true', '_blank', 'toolbarposition=top,toolbar=yes');
+                ref = window.open('https://docs.google.com/viewer?url=' + href + '&embedded=true', '_blank', 'toolbarposition=top,toolbar=yes');
             }
             else {
-                var ref = window.open(href, '_blank', 'toolbarposition=top,toolbar=yes');
+                ref = window.open(href, '_blank', 'toolbarposition=top,toolbar=yes');
             }
 
 
@@ -115,7 +104,6 @@ app.utils.misc = (function () {
     ;
     return {
         USSTATES: USSTATES,
-        bindModal: bindModal,
         findPopovers: function (target) {
             var i;
             var popovers = document.querySelectorAll('a');
@@ -193,11 +181,11 @@ app.utils.misc = (function () {
         // Adds a marker to the map and push to the array.
         addMarker: function (location, type) {
             var icon = '';
-            if (typeof location == "undefined" || !location || location == 0) {
+            if (typeof location === "undefined" || !location || location === 0) {
                 location = {lat: 0, lng: 0};
             }
 
-            if (typeof type == "undefined" || !type) {
+            if (typeof type === "undefined" || !type) {
                 type = 'default';
             }
             switch (type) {
@@ -251,14 +239,14 @@ app.utils.misc = (function () {
             if (typeof map[object_name] == 'object') {
                 map[object_name].setMap(null);
 
-                if (map.directionsDisplay != null) {
+                if (map.directionsDisplay !== null) {
                     map.directionsDisplay.setMap(null);
                     map.directionsDisplay = null;
                 }
             }
         },
         delete_markers: function (markers) {
-            if (markers == null) {
+            if (markers === null) {
                 return;
             }
             for (var i = 0; i < markers.length; i++) {
@@ -331,10 +319,10 @@ function lat_lng_distance(lat1, lon1, lat2, lon2, unit) {
         unit = 'N';
     }
     if (unit == "K") {
-        dist = dist * 1.609344
+        dist = dist * 1.609344;
     }
     if (unit == "N") {
-        dist = dist * 0.8684
+        dist = dist * 0.8684;
     }
     return dist;
 }
@@ -358,10 +346,12 @@ function ajax_timeout() {
         app_toast("Service is currently offline");
     }
 }
+
 function ajax_timeout_reset() {
     app.timeout_count = 0;
     // console.info("timeout count" + app.timeout_count);
 }
+
 function ajax_timeout_request(model) {
     ajax_timeout();
     if (_.isObject(app.request_poller)) {
@@ -369,6 +359,7 @@ function ajax_timeout_request(model) {
         app.request_poller.start();
     }
 }
+
 function ajax_timeout_my_request(model) {
     ajax_timeout();
     if (_.isObject(app.my_request_poller)) {
@@ -376,6 +367,7 @@ function ajax_timeout_my_request(model) {
         app.my_request_poller.start();
     }
 }
+
 function ajax_timeout_driver(model) {
     ajax_timeout();
     if (_.isObject(app.driver_poller)) {
@@ -383,6 +375,7 @@ function ajax_timeout_driver(model) {
         app.driver_poller.start();
     }
 }
+
 function ajax_timeout_offer(model) {
     ajax_timeout();
     if (_.isObject(app.offer_poller)) {
@@ -390,6 +383,7 @@ function ajax_timeout_offer(model) {
         app.offer_poller.start();
     }
 }
+
 function ajax_timeout_my_offer(model) {
     ajax_timeout();
     if (_.isObject(app.my_offer_poller)) {
