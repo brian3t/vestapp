@@ -22,7 +22,7 @@ app.routers.AppRouter = Backbone.Router.extend({
                 if (!app.navbarView) {
                     app.navbarView = new app.views.NavbarView();
                 }
-                $('.page').removeClass('whirl no-overlay traditional').append(app.navbarView.$el);
+                $('.page').removeClass('whirl no-overlay traditional').prepend(app.navbarView.el);
                 return result;
             };
         })(app.slider.slidePage);
@@ -59,7 +59,6 @@ app.routers.AppRouter = Backbone.Router.extend({
         }
         app.slider.slidePage(app.Request_ride_view.$el);
         app.Request_ride_view.dom_ready();
-        app.utils.misc.bindModal();
     },
 
     rider_wait_pickup: function () {
@@ -67,7 +66,6 @@ app.routers.AppRouter = Backbone.Router.extend({
         app.RiderWaitPickupView.render();
         app.slider.slidePage(app.RiderWaitPickupView.$el);
         app.RiderWaitPickupView.dom_ready();
-        app.utils.misc.bindModal();
     },
 
     view_riders: function () {
@@ -76,7 +74,6 @@ app.routers.AppRouter = Backbone.Router.extend({
         app.View_riders_view.render();
         app.slider.slidePage(app.View_riders_view.$el);
         app.View_riders_view.dom_ready();
-        app.utils.misc.bindModal();
     },
 
     dashboard: function () {

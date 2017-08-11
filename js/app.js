@@ -20,6 +20,9 @@ var app = {
     stop_heartbeat: function () {
         clearInterval(app.heartbeat.interval);
     },
+    show_login: function () {
+
+    },
     reset_user: function () {
         $.post(config.restUrl + 'cuser/reset', {id: app.cuser.get('id')});
         app.stop_heartbeat();
