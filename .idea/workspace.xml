@@ -2,21 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f6e17b7d-290c-47e5-9c64-a57a08a35f4c" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/watcherTasks.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/css/compass/sass/styles.scss" afterPath="$PROJECT_DIR$/css/compass/sass/styles.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/css/compass/stylesheets/styles.css" afterPath="$PROJECT_DIR$/css/compass/stylesheets/styles.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/css/compass/stylesheets/styles.css.map" afterPath="$PROJECT_DIR$/css/compass/stylesheets/styles.css.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.html" afterPath="$PROJECT_DIR$/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/app.js" afterPath="$PROJECT_DIR$/js/app.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/views/DashboardView.js" afterPath="$PROJECT_DIR$/js/views/DashboardView.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/views/HomeView.js" afterPath="$PROJECT_DIR$/js/views/HomeView.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/views/LeaderboardListView.js" afterPath="$PROJECT_DIR$/js/views/LeaderboardListView.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/views/NavbarView.js" afterPath="$PROJECT_DIR$/js/views/NavbarView.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tpl/HomeView.html" afterPath="$PROJECT_DIR$/tpl/HomeView.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tpl/LeaderboardListView.html" afterPath="$PROJECT_DIR$/tpl/LeaderboardListView.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tpl/NavbarView.html" afterPath="$PROJECT_DIR$/tpl/NavbarView.html" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -558,7 +544,14 @@
       <option name="project" value="LOCAL" />
       <updated>1502472799048</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Switching to onsen v2. Next: Style ons-list header using left middle and right perhaps.">
+      <created>1502486722394</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1502486722394</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -623,7 +616,8 @@
     <MESSAGE value="Leadboard list view done. Next: Show current user's current point. Then Portfolio." />
     <MESSAGE value="Missing fonts." />
     <MESSAGE value="Fix nav-tab." />
-    <option name="LAST_COMMIT_MESSAGE" value="Fix nav-tab." />
+    <MESSAGE value="Switching to onsen v2. Next: Style ons-list header using left middle and right perhaps." />
+    <option name="LAST_COMMIT_MESSAGE" value="Switching to onsen v2. Next: Style ons-list header using left middle and right perhaps." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
