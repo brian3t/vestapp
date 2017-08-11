@@ -1,4 +1,5 @@
 app.views.HomeView = Backbone.View.extend({
+        tagName: 'ons-page',
         initialize: function () {
             this.render();
         },

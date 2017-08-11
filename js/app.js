@@ -124,6 +124,9 @@ var backboneInit = function () {
         Backbone.history.stop();
         Backbone.history.start();
     });
+    ons.ready(function () {
+        console.log("Onsen UI is ready!");
+    });
     $.ajaxSetup({cache: true});
     $(document).ajaxStart(function () {
         $('.page').addClass('whirl no-overlay traditional');
@@ -260,17 +263,6 @@ var capp = {
         }
     },
     onDeviceReady: function () {
-        if (typeof device !== 'undefined' && _.isObject(device) && device.hasOwnProperty('platform')) {
-            if (device.platform === 'iOS') {
-                $('head').append($('<link rel="stylesheet" type="text/css" />').attr('href', 'ratchet/ratchet-theme-ios.css'));
-            }
-            if (device.platform === 'Android') {
-                $('head').append($('<link rel="stylesheet" type="text/css" />').attr('href', 'ratchet/ratchet-theme-android.min.css'));
-            }
-        }
-        if (isInWeb) {
-            $('head').append($('<link rel="stylesheet" type="text/css" />').attr('href', 'ratchet/ratchet-theme-ios.css'));
-        }
         window.addEventListener('orientationchange', doOnOrientationChange);
         // Initial execution if needed
         doOnOrientationChange();

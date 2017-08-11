@@ -43,9 +43,6 @@ html {
 body {
   font-family: Josefin Sans, sans-serif;
   font-size: 12pt;
-  background-color: inherit;
-  position: absolute;
-  min-height: 100%;
 }
 
 button, input, input:-webkit-autofill, textarea {
@@ -929,7 +926,7 @@ form .whiteTextInput::placeholder {
 form .whiteTextInput::-moz-placeholder {
     color: white !important;
 }
-form .whiteTextInput:-ms-input-placeholder {  
+form .whiteTextInput:-ms-input-placeholder {
     color: white !important;
 }
 

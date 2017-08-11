@@ -1,5 +1,5 @@
-<li class="table-view-cell header"><b><span class="badge_header ">Rank</span><span class="after_badge">Name - State</span><span class="pull-right">Point</span></b></li>
+<ons-list-header class="list-item header">&nbsp; Name - State<span class="pull-right">Point</span></ons-list-header>
 <% _.each(models, function(leader) { %>
-<li class="table-view-cell"><span class="badge left"><%= leader.get('rank') %></span><span class="text-center"><%= leader.get('name') %> - <%= leader.get('state_abbr') %></span>
-<span class="pull-right"><%= leader.get('point') %></span></li>
+<ons-list-item class="list-item"><span class="badge left"><%= leader.get('rank') %></span><span class="text-center"><%= leader.get('name') %> - <%= leader.get('state_abbr') %></span>
+<span class="pull-right"><%= leader.get('point') %></span></ons-list-item>
 <% }); %>

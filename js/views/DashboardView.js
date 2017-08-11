@@ -1,4 +1,5 @@
 app.views.DashboardView = Backbone.View.extend({
+    tagName: 'ons-page',
     model: app.cuser,
     initialize: function () {
         this.render();

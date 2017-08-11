@@ -1,9 +1,22 @@
-    <a class="tab-item home" onclick="app.router.navigate('/');app.router.forgot();">
-        <span class="ion-trophy"></span> Leaderboard
-    </a>
-    <a class="tab-item portfolio" onclick="app.router.navigate('/portfolio');app.router.portfolio();">
-        My Portfolio
-    </a>
-    <a class="tab-item trending" onclick="app.router.navigate('/trending');app.router.trending();">
-        <span class="ion-arrow-graph-up-right"></span> Trending
-    </a>
+    <label class="tabbar__item">
+        <input type="radio" name="tabbar-a" checked="checked">
+        <button class="tabbar__button" onclick="app.router.navigate('/');app.router.home();">
+            <i class="tabbar__icon ion-trophy"></i>
+            <div class="tabbar__label">Leaderboard</div>
+        </button>
+    </label>
+
+    <label class="tabbar__item">
+        <input type="radio" name="tabbar-a">
+        <button class="tabbar__button" onclick="app.router.navigate('/portfolio');app.router.portfolio();">
+            <div class="tabbar__label">My Portfolio</div>
+        </button>
+    </label>
+
+    <label class="tabbar__item">
+        <input type="radio" name="tabbar-a">
+        <button class="tabbar__button" onclick="app.router.navigate('/trending');app.router.trending();">
+            <i class="tabbar__icon ion-arrow-graph-up-right"></i>
+            <div class="tabbar__label">Trending</div>
+        </button>
+    </label>

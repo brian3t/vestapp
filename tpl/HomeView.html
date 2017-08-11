@@ -1,21 +1,30 @@
-<header class="bar bar-nav">
-    <h1 class="title"><span id="first_this_month"></span> to <span id="today"></span></h1>
-</header>
-<div class="content home">
-    <div id="leaderboard_wrapper">
-    </div>
-    <a id="login_a" href="#login_modal" class="btn" style="display: none">Login</a>
-    <div id="login_modal" class="modal">
-        <header class="bar bar-nav">
-            <a class="icon icon-close pull-right" href="#login_modal"></a>
-            <h1 class="title">Login</h1>
-        </header>
+<ons-toolbar>
+    <!--<div class="toolbar__left">
+    <span class="toolbar-button">
+      <i class="ion-navicon" style="font-size:32px; vertical-align:-6px;"></i>
+    </span>
+    </div>-->
 
-        <div class="content">
-            <p class="content-padded">The contents of my modal go here. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut.</p>
-        </div>
+    <div class="toolbar__center">
+        VestChallenge - Leaderboard
     </div>
+
+    <!--<div class="toolbar__right">
+        <span class="toolbar-button">Label</span>
+    </div>-->
+</ons-toolbar>
+<h4 class="text-center"><span id="first_this_month"></span> to <span id="today"></span>
+</h4>
+<div id="leaderboard_wrapper">
 </div>
+<ons-modal direction="up" id="login_modal" animation="fade">
+    <div style="text-align: center">
+        <p>
+            <ons-icon icon="md-spinner" size="28px" spin></ons-icon>
+            Loading...
+        </p>
+    </div>
+</ons-modal>
 
 <script>
     var homeview_class = app.views.HomeView;

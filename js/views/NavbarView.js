@@ -1,7 +1,9 @@
 app.views.NavbarView = Backbone.View.extend({
     current_tab: 0,
-    tagName: 'nav',
-    className:'bar bar-tab',
+    tagName: 'ons-tabbar',
+    attributes:{
+        position: "bottom"
+    },
     set_current_tab: function (current_tab) {
         this.current_tab = current_tab;
     },
