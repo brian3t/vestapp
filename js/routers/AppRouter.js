@@ -22,7 +22,7 @@ app.routers.AppRouter = Backbone.Router.extend({
                 if (!app.navbarView) {
                     app.navbarView = new app.views.NavbarView();
                 }
-                $('.page').removeClass('whirl no-overlay traditional').prepend(app.navbarView.el);
+                $('.page').removeClass('whirl no-overlay traditional').append(app.navbarView.el);
                 return result;
             };
         })(app.slider.slidePage);
