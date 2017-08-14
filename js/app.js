@@ -5,7 +5,7 @@ var GMAP_KEY = 'AIzaSyC1RpnsU0y0yPoQSg1G_GyvmBmO5i1UH5E';
 var CLEAR_LOCAL_STORAGE = false;
 var LOCAL_NOTE_IDLE_ID = 8;
 var LOCAL_NOTE_IDLE_DELAY = 10 * 1000 * 60; // 10 minutes
-
+var fapp = null;
 
 var app = {
     views: {}, models: {}, routers: {}, utils: {}, adapters: {}, request_markers: [], driver_markers: [],
@@ -124,9 +124,8 @@ var backboneInit = function () {
         Backbone.history.stop();
         Backbone.history.start();
     });
-    ons.ready(function () {
-        console.log("Onsen UI is ready!");
-    });
+    fapp = new Framework7();
+
     $.ajaxSetup({cache: true});
     $(document).ajaxStart(function () {
         $('.page').addClass('whirl no-overlay traditional');
