@@ -11,7 +11,7 @@ app.routers.AppRouter = Backbone.Router.extend({
     },
 
     initialize: function () {
-        app.slider = new PageSlider($('body'));
+        app.slider = new PageSlider($('div.page-content'));
         app.slider.slidePageSp = (function (_super) {
             return function () {
                 var previous_view = $(this.$currentPage).attr('current_view');
@@ -22,7 +22,8 @@ app.routers.AppRouter = Backbone.Router.extend({
                 if (!app.navbarView) {
                     app.navbarView = new app.views.NavbarView();
                 }
-                // $('.page').removeClass('whirl no-overlay traditional').append(app.navbarView.el);
+                $('.page').removeClass('whirl no-overlay traditional');
+                $('div.navbar').html(app.navbarView.el);
                 return result;
             };
         })(app.slider.slidePage);

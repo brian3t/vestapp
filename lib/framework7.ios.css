@@ -1589,7 +1589,7 @@ html.pixel-ratio-3 .toolbar:before {
   display: block;
   margin: 0;
   letter-spacing: 0.01em;
-  font-size: 10px;
+  font-size: 14px;
   position: relative;
   text-overflow: ellipsis;
   white-space: nowrap;

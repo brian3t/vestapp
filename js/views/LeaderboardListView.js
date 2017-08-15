@@ -5,9 +5,9 @@ app.views.LeaderboardListView = Backbone.View.extend({
             this.model = app.models.leaderboard_collection;
             this.listenTo(this.model, 'sync ', this.render);
         },
-        tagName: 'ons-list',
-        id: 'leaderboard_ul',
-        className: 'list',
+        tagName: 'div',
+        id: 'leaderboard_list',
+        className: 'list-block',
         parentView: null,
         render: function () {
             this.$el.html(this.template({models: this.model.models}));

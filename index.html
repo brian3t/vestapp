@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="utf-8"/>
-    <meta name="format-detection" content="telephone=no"/>
+    <!--<meta name="format-detection" content="telephone=no"/>-->
     <meta name="msapplication-tap-highlight" content="no"/>
     <!--<meta http-equiv="Content-Security-Policy" content="default-src 'self'; font-src 'self' http://fonts.gstatic.com https://fonts.gstatic.com;
      script-src 'self' 'unsafe-eval' 'unsafe-inline' https://www.google-analytics.com http://superbappsolutions.com:8080 https://debug1.phonegap.com https://debug2.phonegap.com https://debug3.phonegap.com *.phonegap.com https://tdm.commuterconnections.org carpoolnow.mediabeef.com https://maps.googleapis.com https://connect.facebook.net http://google-analytics.com https://google-analytics.com http://ajax.googleapis.com https://ajax.googleapis.com http://cdnjs.cloudflare.com https://cdnjs.cloudflare.com;
@@ -25,49 +25,107 @@
     <!-- TODO WARNING: for iOS 7, remove the width=device-width and height=device-height attributes. See https://issues.apache.org/jira/browse/CB-4323 -->
     <!--<meta name="viewport" content="target-densitydpi=device-dpi" />-->
     <meta name="viewport"
-          content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height"/>
-    <link href="lib/framework7.ios.min.css" rel="stylesheet">
-    <link href="lib/framework7.ios.colors.min.css" rel="stylesheet">
-    <link href="lib/page-slider.css" rel="stylesheet">
-    <!--<link href='https://fonts.googleapis.com/css?family=Quicksand:400,700' rel='stylesheet' type='text/css'>-->
+          content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, minimal-ui"/>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="white">
+
     <link href="css/font-awesome-4.5.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-    <link href="css/compass/sass/styles.css.map" rel="stylesheet">
-    <link href="css/compass/stylesheets/styles.css" rel="stylesheet">
-    <!--<link href="css/compass/stylesheets/bb10.css" rel="stylesheet">-->
     <link href="lib/jquery.jgrowl.min.css" rel="stylesheet">
     <link href="css/ionicons.min.css" rel="stylesheet">
+    <link href="css/compass/sass/styles.css.map" rel="stylesheet">
+    <!--<link href="css/compass/stylesheets/styles.css" rel="stylesheet"> this is now loaded inside app's DeviceReady-->
     <title>Vest Challenge</title>
 </head>
 
 <body>
+<!-- Status bar overlay for full screen mode (PhoneGap) -->
+<div class="statusbar-overlay"></div>
+<!-- Panels overlay-->
+<div class="panel-overlay"></div>
+<!-- Left panel with reveal effect-->
+<div class="panel panel-right panel-reveal">
+    <div class="content-block">
+        <div id="user_info">Hello, <span id="user_first_name">there</span>!</div>
+        <p><a href="#" class="open-login-screen">Login</a></p>
+        <p><a href="#">Logout</a></p>
+        <p><a href="#">Sign Up</a></p>
+        <p><a href="#" class="close-panel">Hide Menu</a></p>
+    </div>
+</div>
 <div class="views">
     <div class="view view-main">
-        <div class="pages">
+        <!-- Top Navbar-->
+        <div class="navbar">
+
+        </div>
+        <!-- /End of Top Navbar-->
+
+        <!-- Pages container, because we use fixed-through navbar and toolbar, it has additional appropriate classes-->
+        <div class="pages navbar-through toolbar-through tabbar-labels-through">
             <div data-page="index" class="page navbar-fixed toolbar-fixed">
 
-                <!-- Top Navbar-->
-                <div class="navbar">
-                    <div class="navbar-inner">
-                        <div class="left">Left</div>
-                        <div class="center">Center</div>
-                        <div class="right">Right</div>
-                    </div>
-                </div>
-                <!-- /End of Top Navbar-->
-
                 <div class="page-content">
-                    <p>Other content goes here</p>
-                    ...
                 </div>
 
                 <!-- Bottom Toolbar-->
-                <div class="toolbar">
+                <div class="toolbar tabbar tabbar-labels">
                     <div class="toolbar-inner">
-                        Hello
+                        <a class="tab-link active" href="#" onclick="app.router.navigate('/');app.router.home();">
+                            <i class="tabbar__icon ion-trophy"></i>
+                            <span class="tabbar-label">Leaderboard</span>
+                        </a>
+                        <a class="tab-link" href="#" onclick="app.router.navigate('/portfolio');app.router.portfolio();">
+                            <i class="tabbar__icon ion-briefcase"></i>
+                            <span class="tabbar-label">My Portfolio</span>
+                        </a>
+                        <a class="tab-link" href="#" onclick="app.router.navigate('/trending');app.router.trending();">
+                            <i class="tabbar__icon ion-arrow-graph-up-right"></i>
+                            <span class="tabbar-label">Trending</span>
+                        </a>
                     </div>
                 </div>
                 <!-- /End of Bottom Toolbar-->
 
+            </div>
+            <div class="login-screen hidden">
+                <div class="view">
+                    <div class="page">
+                        <div class="login-screen-content">
+                            <div class="login-screen-title">Log In</div>
+                            <form>
+                                <div class="list-block">
+                                    <ul>
+                                        <li class="item-content">
+                                            <div class="item-inner">
+                                                <div class="item-title label">Username</div>
+                                                <div class="item-input">
+                                                    <input type="text" name="username" placeholder="Your username">
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li class="item-content">
+                                            <div class="item-inner">
+                                                <div class="item-title label">Password</div>
+                                                <div class="item-input">
+                                                    <input type="password" name="password" placeholder="Your password">
+                                                </div>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="list-block">
+                                    <ul>
+                                        <li><a href="#" class="item-link list-button">Sign In</a></li>
+                                    </ul>
+                                    <div class="list-block-label">
+                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                                        <p><a href="#" class="close-login-screen">Close Login Screen</a></p>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -83,7 +141,7 @@
 <script src="lib/backbone.js"></script>
 <script src="lib/backbone-localstorage.min.js"></script>
 <!--<script src="lib/page-slider.min.js"></script>-->
-<script src="lib/page-slider.min.js"></script>
+<script src="lib/page-slider.js"></script>
 <script src="lib/framework7.min.js"></script>
 
 <!-- TESTING -->

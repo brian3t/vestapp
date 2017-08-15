@@ -1,22 +1,11 @@
-    <label class="tabbar__item">
-        <input type="radio" name="tabbar-a" checked="checked">
-        <button class="tabbar__button" onclick="app.router.navigate('/');app.router.home();">
-            <i class="tabbar__icon ion-trophy"></i>
-            <div class="tabbar__label">Leaderboard</div>
-        </button>
-    </label>
+<div class="left"><a id="back_button" style="display: none" href="#" onclick="window.history.back();"><i class="icon icon-back"></i>
+</a>
 
-    <label class="tabbar__item">
-        <input type="radio" name="tabbar-a">
-        <button class="tabbar__button" onclick="app.router.navigate('/portfolio');app.router.portfolio();">
-            <div class="tabbar__label">My Portfolio</div>
-        </button>
-    </label>
+</div>
+<div class="center" id="current_page_title">
+    Leaderboard
+</div>
 
-    <label class="tabbar__item">
-        <input type="radio" name="tabbar-a">
-        <button class="tabbar__button" onclick="app.router.navigate('/trending');app.router.trending();">
-            <i class="tabbar__icon ion-arrow-graph-up-right"></i>
-            <div class="tabbar__label">Trending</div>
-        </button>
-    </label>
+<div class="right">
+    <a href="#" class="link icon-only open-panel"><i class="icon icon-bars"></i></a>
+</div>

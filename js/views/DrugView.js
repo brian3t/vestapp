@@ -36,7 +36,7 @@ app.views.DrugView = Backbone.View.extend({
         var stateVal = "CA";
         if (stateEle.length !== 0) {
             stateVal = stateEle.val();
-        };
+        }
         this.searchResults.fetch({reset: true, data: {name: key, state: stateVal}});
     },
 

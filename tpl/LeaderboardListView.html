@@ -1,33 +1,18 @@
-<div class="list-block">
-    <ul>
-        <li class="item-content">
-            <div class="item-media"><i class="icon icon-f7"></i></div>
-            <div class="item-inner">
-                <div class="item-title">Item title</div>
-                <div class="item-after">Label</div>
-            </div>
-        </li>
-        <li class="item-content">
-            <div class="item-media"><i class="icon icon-f7"></i></div>
-            <div class="item-inner">
-                <div class="item-title">Item with badge</div>
-                <div class="item-after"><span class="badge">5</span></div>
-            </div>
-        </li>
-        <li class="item-content">
-            <div class="item-media"><i class="icon icon-f7"></i></div>
-            <div class="item-inner">
-                <div class="item-title">Another item</div>
-                <div class="item-after">Another label</div>
-            </div>
-        </li>
-    </ul>
-    <div class="list-block-label">List block label text goes here</div>
-</div>
+<ul>
+    <li class="item-content text-bold">
+        <div class="item-inner">
+            <div class="item-title">#</div>
+            Name - State
+            <div class="item-after">Point</div>
+        </div>
+    </li>
 
-<b><ons-list-item class="list-item"><span class="left">#</span><span class="text-center">Name - State</span>
-    <span class="right">Point</span></ons-list-item></b>
-<% _.each(models, function(leader) { %>
-<ons-list-item class="list-item"><span class="left"><%= leader.get('rank') %></span><span class="text-center"><%= leader.get('name') %> - <%= leader.get('state_abbr') %></span>
-<span class="right"><%= leader.get('point') %></span></ons-list-item>
-<% }); %>
+    <% _.each(models, function(leader) { %>
+    <li class="item-content">
+        <div class="item-inner">
+            <div class="item-title"><%= leader.get('name') %></div>
+        </div>
+    </li>
+    <% }); %>
+</ul>
+<!--<div class="list-block-label">Leaderboard list is updated every 5 minutes</div>-->
