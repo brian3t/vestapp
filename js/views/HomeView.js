@@ -3,6 +3,13 @@ app.views.HomeView = Backbone.View.extend({
         initialize: function () {
             this.render();
         },
+        username: '',
+        password: '',
+        $username: null,
+        $password: null,
+        hashedPassword: '',
+        hashed: true,
+        remember: true,
         leaderboard_list_view: {},
         render: function () {
             this.$el.html(this.template());
