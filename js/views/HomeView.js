@@ -24,44 +24,7 @@ app.views.HomeView = Backbone.View.extend({
         },
 
         events: {
-            "submit #loginForm ": "login",
             "toggle": "remember_cb"
-        },
-        login: function () {
-
-            var homeview_class = app.views.HomeView;
-            //disable the button so we can't resubmit while we wait
-            $("#submitButton", this).attr("disabled", "disabled");
-            $.post(config.restUrl + 'user/login', $('#login-form').serialize(), function (resp) {
-                if (resp.status === 'ok') {
-                    document.cookie = 'loginstring=' + $('#login-form').serialize();
-                    app.cur_user.set({id: resp.id, username: $('#username').val(), password: $('#password').val()});
-                    // app.cur_profile.set(resp.profile);
-                    var jqxhr = app.cur_user.fetch({
-                        success: function () {
-                            app.prepare_collections();
-                            app.navbar_view = new app.views.NavbarView({model: app.cur_user});
-                            // app.router.dashboard();
-                            if (!IS_LOCAL) {
-                                app.router.navigate('dashboard', {trigger: true});
-                            } else {
-                                app.router.navigate('offers', {trigger: true});
-                                $('.edit_switch').trigger('change');
-                            }
-                        }
-                    });
-
-                } else {
-                    var message = 'Oh nose! That password just won\'t work';
-                    if (resp.message === 'Username does not exist') {
-                        message = 'This email does not exist in our system';
-                    }
-                    $('#password').next('div.help-block').html('<ul class="list-unstyled"><li>' + message + '</li></ul>')
-                        .parent('div.form-group').addClass('has-error');
-                }
-            }, 'json');
-            return false;
-
         },
         remember_cb: function (e) {
             this.remember = $(e.target).hasClass('active');
@@ -100,6 +63,10 @@ app.views.HomeView = Backbone.View.extend({
             var period = app.first_this_month.format('MMM-DD') + ' to ' + app.today.format('MMM-DD');
 
             this.$el.find('div#leaderboard_wrapper').html('<div class="text-center content-block-title" id="leaderboard_period">' + period + '</div>').append(this.leaderboard_list_view.render().el);
+
+            if (IS_LOCAL){
+                fapp.loginScreen();
+            }
         }
     },
     {
@@ -113,8 +80,6 @@ app.views.HomeView = Backbone.View.extend({
     }
 );
 
-app.cuser = new app.models.Cuser();
 if (IS_DEBUG) {
     window.localStorage.removeItem('cuser');
 }
-app.local_store_cuser = {};

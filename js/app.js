@@ -8,7 +8,7 @@ var LOCAL_NOTE_IDLE_DELAY = 10 * 1000 * 60; // 10 minutes
 var fapp = null;
 
 var app = {
-    views: {}, models: {}, routers: {}, utils: {}, adapters: {}, request_markers: [], driver_markers: [],
+    views: {}, models: {}, routers: {}, utils: {}, adapters: {}, collections:{},
     today: moment(),
     first_this_month: {},
     timeout_count: 0,//for ajax timeout ()
@@ -33,6 +33,9 @@ var app = {
             app.driver_poller.stop();
         }
         app.cuser = new app.models.Cuser();
+    },
+    prepare_collections: function () {
+        
     }
 };
 var current_pos = {};
@@ -136,6 +139,7 @@ var backboneInit = function () {
         // $('div.content').css({opacity: 1})
     });
     isInWeb = (typeof isInWeb !== "boolean" ? "true" : isInWeb);
+    app.cur_user = new app.models.User();
     app.models.leaderboard_collection = new app.models.LeaderboardCollection();
     $('#loading').hide();
     app.models.leaderboard_collection.fetch();

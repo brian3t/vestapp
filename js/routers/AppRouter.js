@@ -19,11 +19,12 @@ app.routers.AppRouter = Backbone.Router.extend({
                 console.log("Assign class after sliding");
                 var current_view = Backbone.history.getFragment() === '' ? 'home' : Backbone.history.getFragment();
                 $('div.page').attr('current_view', current_view);
-                if (!app.navbarView) {
-                    app.navbarView = new app.views.NavbarView();
+                if (!app.navbar_view) {
+                    app.navbar_view = new app.views.NavbarView();
                 }
                 $('.page').removeClass('whirl no-overlay traditional');
-                $('div.navbar').html(app.navbarView.el);
+                $('div.navbar').html(app.navbar_view.el);
+                app.navbar_view.delegateEvents();
                 return result;
             };
         })(app.slider.slidePage);
