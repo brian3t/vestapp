@@ -5,7 +5,7 @@ app.routers.AppRouter = Backbone.Router.extend({
         "drugs/:id": "drugDetails",
         "dashboard": "dashboard",
         "forgot": "forgot",
-        "view_riders": "view_riders",
+        "portfolio": "portfolio",
         "request_ride": "request_ride"
         // ,"formulary/:f_id/:drug_id/:state": "formularyDetails"
     },
@@ -49,18 +49,14 @@ app.routers.AppRouter = Backbone.Router.extend({
 
     },
 
-    request_ride: function () {
-        trackButton('Select rider button');
-        app.Request_ride_view = new app.views.Request_ride_view();
-        app.Request_ride_view.render();
+    portfolio: function () {
+        app.Portfolio_view = new app.views.PortfolioView();
+        app.Portfolio_view.render();
         if (_.isObject(app.offer_collection)) {
             app.offer_collection.reset();
         }
-        if (_.isObject(app.request)) {
-            app.request.clear().set(app.request.defaults);
-        }
-        app.slider.slidePage(app.Request_ride_view.$el);
-        app.Request_ride_view.dom_ready();
+        app.slider.slidePage(app.Portfolio_view.$el);
+        app.Portfolio_view.dom_ready();
     },
 
     rider_wait_pickup: function () {
