@@ -18,10 +18,16 @@ app.views.NavbarView = Backbone.View.extend({
         }
         this.$el.find('nav a').removeClass('active');
         this.$el.find('nav a.' + cur_route).addClass('active');
+        if (localStorage.getItem('remember') === 1){
+            $('#remember').attr('checked', 'checked');
+        }
         return this;
     },
     events: {
-        "click .logout": "logout"
+        "click .logout": "logout",
+        "change #remember": function () {
+            localStorage.setItem('remember', 1);
+        }
     },
     login: function (e) {
         e.preventDefault();
