@@ -18,20 +18,34 @@ app.views.NavbarView = Backbone.View.extend({
         }
         this.$el.find('nav a').removeClass('active');
         this.$el.find('nav a.' + cur_route).addClass('active');
-        if (localStorage.getItem('remember') === 1){
-            $('#remember').attr('checked', 'checked');
-        }
         return this;
     },
-    events: {
-        "click .logout": "logout",
-        "change #remember": function () {
-            localStorage.setItem('remember', 1);
+    dom_ready: function () {
+        if (localStorage.getItem('remember')) {
+            $('#remember').attr('checked', 'checked');
+            $('#username').val(localStorage.getItem('username'));
+            $('#password').val(localStorage.getItem('password'));
         }
     },
-    login: function (e) {
-        e.preventDefault();
+    events: {
+        "click .logout": "logout"
+    },
+    remember_clicked: function () {
+        localStorage.setItem('remember', !$('#remember').prop('checked'));
+        console.info('clicked');
+    },
+    login: function (e, suppress_toast) {
+        if (typeof e === 'object') {
+            e.preventDefault();
+        }
+        if (typeof suppress_toast === "undefined" || !suppress_toast) {
+            suppress_toast = false;
+        }
         //disable the button so we can't resubmit while we wait
+        if (localStorage.getItem('remember')) {
+            localStorage.setItem('username', $('#username').val());
+            localStorage.setItem('password', $('#password').val());
+        }
         $("#sign_in_btn").attr("disabled", "disabled");
         $.post(config.restUrl + 'user/login', $('#login_form').serialize(), function (resp) {
             if (resp.status === 'ok') {
@@ -41,7 +55,9 @@ app.views.NavbarView = Backbone.View.extend({
                 var jqxhr = app.cur_user.fetch({
                     success: function () {
                         app.prepare_collections();
-                        fapp.addNotification({title: "Success", message: "Signed in successfully", hold: 3000});
+                        if (!suppress_toast) {
+                            fapp.addNotification({title: "Success", message: "Signed in successfully", hold: 3000});
+                        }
                         // app.router.dashboard();
                         if (!IS_LOCAL) {
                             // app.router.navigate('dashboard', {trigger: true});

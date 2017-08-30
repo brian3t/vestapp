@@ -24,7 +24,7 @@ app.routers.AppRouter = Backbone.Router.extend({
                 }
                 $('.page').removeClass('whirl no-overlay traditional');
                 $('div.navbar').html(app.navbar_view.el);
-                app.navbar_view.delegateEvents();
+                app.navbar_view.dom_ready();
                 return result;
             };
         })(app.slider.slidePage);
@@ -56,6 +56,7 @@ app.routers.AppRouter = Backbone.Router.extend({
             app.offer_collection.reset();
         }
         app.slider.slidePage(app.Portfolio_view.$el);
+        $('#current_page_title').val('My Portfolio');
         app.Portfolio_view.dom_ready();
     },
 
