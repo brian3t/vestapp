@@ -751,4 +751,9 @@ form .whiteTextInput:-ms-input-placeholder {
   text-align: center;
 }
 
+/* line 751, ../sass/styles.scss */
+.badge.gain {
+  background-color: green;
+}
+
 /*# sourceMappingURL=styles.css.map */
