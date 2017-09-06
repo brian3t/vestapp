@@ -31,7 +31,7 @@ app.routers.AppRouter = Backbone.Router.extend({
         app.slider.slidePage = app.slider.slidePageSp;
     },
     set_class_page: function () {
-        var current_view = Backbone.history.getFragment() == '' ? 'home' : Backbone.history.getFragment();
+        var current_view = Backbone.history.getFragment() === '' ? 'home' : Backbone.history.getFragment();
         $('div.page').attr('current_view', current_view);
     },
 

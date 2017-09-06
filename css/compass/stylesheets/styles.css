@@ -262,9 +262,6 @@ div#ad {
 }
 .content.dashboard {
 }
-div.page {
-  background-size: cover;
-}
 div.page[current_view=signup] {
   button {
     margin: 12px 0;
@@ -734,26 +731,31 @@ form .whiteTextInput:-ms-input-placeholder {
 .tab-bar-content {
   z-index: -1;
 }*/
-/* line 740, ../sass/styles.scss */
+/* line 737, ../sass/styles.scss */
 .text-bold {
   font-weight: bold;
 }
 
 /* Framework7 */
-/* line 742, ../sass/styles.scss */
+/* line 739, ../sass/styles.scss */
 .panel {
   background-color: #eee;
 }
 
 /* END Framework7 */
-/* line 747, ../sass/styles.scss */
+/* line 744, ../sass/styles.scss */
 .text_center {
   text-align: center;
 }
 
-/* line 751, ../sass/styles.scss */
+/* line 748, ../sass/styles.scss */
 .badge.gain {
   background-color: green;
+}
+
+/* line 749, ../sass/styles.scss */
+div.page {
+  position: inherit;
 }
 
 /*# sourceMappingURL=styles.css.map */

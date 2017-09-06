@@ -265,9 +265,6 @@ div#ad {
 }
 .content.dashboard {
 }
-div.page {
-  background-size: cover;
-}
 div.page[current_view=signup] {
   button {
     margin: 12px 0;
@@ -749,3 +746,6 @@ form .whiteTextInput:-ms-input-placeholder {
 }
 
 .badge.gain {background-color: green }
+div.page {
+  position: inherit;
+}
