@@ -2,21 +2,20 @@ app.models.User = Backbone.RelationalModel.extend({
         initialize: function () {
         },
         urlRoot: config.restUrl + 'user',
-        relations: [{
-            type: Backbone.HasOne,
-            key: 'profile',
-            relatedModel: 'app.models.Profile',
-            reverseRelation: {
-                key: 'user',
-                includeInJSON: 'id'
-            }
-        }],
+        relations: [
+            {
+                type: Backbone.HasOne,
+                key: 'portfolio',
+                relatedModel: 'app.models.Portfolio',
+                reverseRelation: {
+                    key: 'user',
+                    includeInJSON: 'id'
+                }
+            }],
         localStorage: false,
         username: null,
         password: null,
-
         // profile: {avatar: null},
-
         defaults: {
             twitter_id: null,
             company: {name: null},
