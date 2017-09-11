@@ -24,5 +24,6 @@
       <option name="myCustomValuesEnabled" value="true" />
     </inspection_tool>
     <inspection_tool class="JSEqualityComparisonWithCoercion" enabled="true" level="WEAK WARNING" enabled_by_default="true" />
+    <inspection_tool class="JSJQueryEfficiency" enabled="true" level="WEAK WARNING" enabled_by_default="true" />
   </profile>
 </component>

@@ -21,10 +21,17 @@ app.views.NavbarView = Backbone.View.extend({
         return this;
     },
     dom_ready: function () {
-        if (localStorage.getItem('remember')) {
+        if (localStorage.getItem('remember') === "true") {
             $('#remember').attr('checked', 'checked');
             $('#username').val(localStorage.getItem('username'));
             $('#password').val(localStorage.getItem('password'));
+        }
+        //try to login auto, if remember = true
+        if (typeof app.cur_user === 'object' && app.cur_user.get('id')) {
+            return 1;
+        }
+        if (localStorage.getItem('remember') === "true") {
+            this.login(true, true);
         }
     },
     events: {
@@ -43,28 +50,37 @@ app.views.NavbarView = Backbone.View.extend({
         }
         //disable the button so we can't resubmit while we wait
         if (localStorage.getItem('remember')) {
-            localStorage.setItem('username', $('#username').val());
-            localStorage.setItem('password', $('#password').val());
-        }
+            if (!($('#username').val())) {
+                $('#username').val(localStorage.getItem('username'));
+            }
+            else {
+                localStorage.setItem('username', $('#username').val());
+            }
+            if (!($('#password').val())) {
+                $('#password').val(localStorage.getItem('password'));
+            }
+            else {
+                localStorage.setItem('password', $('#password').val());
+            }        }
         $("#sign_in_btn").attr("disabled", "disabled");
         $.post(config.restUrl + 'user/login', $('#login_form').serialize(), function (resp) {
             if (resp.status === 'ok') {
                 document.cookie = 'loginstring=' + $('#login_form').serialize();
                 app.cur_user.set({id: resp.id, username: $('#username').val(), password: $('#password').val()});
                 // app.cur_profile.set(resp.profile);
+                if (!suppress_toast) {
+                    fapp.addNotification({title: "Success", message: "Signed in successfully", hold: 3000});
+                }
+                // app.router.dashboard();
+                if (!IS_LOCAL) {
+                    // app.router.navigate('dashboard', {trigger: true});
+                } else {
+                    // app.router.navigate('dashboard', {trigger: true});
+                }
+                setTimeout(fapp.closeModal, 1000);
                 var jqxhr = app.cur_user.fetch({
                     success: function () {
                         app.prepare_collections();
-                        if (!suppress_toast) {
-                            fapp.addNotification({title: "Success", message: "Signed in successfully", hold: 3000});
-                        }
-                        // app.router.dashboard();
-                        if (!IS_LOCAL) {
-                            // app.router.navigate('dashboard', {trigger: true});
-                        } else {
-                            // app.router.navigate('dashboard', {trigger: true});
-                        }
-                        setTimeout(fapp.closeModal, 1000);
                     }
                 });
 

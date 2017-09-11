@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f6e17b7d-290c-47e5-9c64-a57a08a35f4c" name="Default" comment="">
+    <list default="true" id="f6e17b7d-290c-47e5-9c64-a57a08a35f4c" name="Default" comment="Framework7 ready. Added f7 icons. Next: working login screen.">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/app.js" afterPath="$PROJECT_DIR$/js/app.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/models/PortfolioModel.js" afterPath="$PROJECT_DIR$/js/models/PortfolioModel.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/routers/AppRouter.js" afterPath="$PROJECT_DIR$/js/routers/AppRouter.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/views/NavbarView.js" afterPath="$PROJECT_DIR$/js/views/NavbarView.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/views/PortfolioView.js" afterPath="$PROJECT_DIR$/js/views/PortfolioView.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tpl/NavbarView.ejs" afterPath="$PROJECT_DIR$/tpl/NavbarView.ejs" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tpl/PortfolioView.ejs" afterPath="$PROJECT_DIR$/tpl/PortfolioView.ejs" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -43,21 +43,9 @@
       <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-669">
+            <state relative-caret-position="1323">
               <caret line="63" column="28" lean-forward="false" selection-start-line="63" selection-start-column="28" selection-end-line="63" selection-end-column="28" />
               <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="NavbarView.ejs" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/tpl/NavbarView.ejs">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="408">
-              <caret line="35" column="54" lean-forward="false" selection-start-line="35" selection-start-column="54" selection-end-line="35" selection-end-column="54" />
-              <folding>
-                <element signature="n#style#0;n#a#0;n#div#0;n#!!top" expanded="true" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -65,9 +53,11 @@
       <file leaf-file-name="app.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js/app.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="318">
-              <caret line="129" column="28" lean-forward="true" selection-start-line="129" selection-start-column="28" selection-end-line="129" selection-end-column="28" />
+            <state relative-caret-position="1528">
+              <caret line="218" column="0" lean-forward="true" selection-start-line="218" selection-start-column="0" selection-end-line="218" selection-end-column="0" />
               <folding>
+                <element signature="n#!!block;n#setupPush#0" expanded="false" />
+                <element signature="e#4900#5668#0" expanded="false" />
                 <element signature="e#9882#13591#0" expanded="false" />
                 <element signature="e#15804#16096#0" expanded="false" />
                 <element signature="e#16148#16656#0" expanded="false" />
@@ -77,11 +67,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="HomeView.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/js/views/HomeView.js">
+      <file leaf-file-name="UserModel.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/js/models/UserModel.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="191">
-              <caret line="42" column="20" lean-forward="false" selection-start-line="42" selection-start-column="20" selection-end-line="42" selection-end-column="20" />
+            <state relative-caret-position="459">
+              <caret line="27" column="13" lean-forward="false" selection-start-line="27" selection-start-column="13" selection-end-line="27" selection-end-column="13" />
               <folding />
             </state>
           </provider>
@@ -90,18 +80,38 @@
       <file leaf-file-name="PortfolioView.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js/views/PortfolioView.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="270">
-              <caret line="15" column="9" lean-forward="true" selection-start-line="15" selection-start-column="9" selection-end-line="15" selection-end-column="9" />
+            <state relative-caret-position="324">
+              <caret line="18" column="2" lean-forward="true" selection-start-line="18" selection-start-column="2" selection-end-line="18" selection-end-column="2" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="PortfolioView.ejs" pinned="false" current-in-tab="true">
+      <file leaf-file-name="homeview_ref.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/js/views/homeview_ref.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="441">
+              <caret line="105" column="33" lean-forward="false" selection-start-line="105" selection-start-column="33" selection-end-line="105" selection-end-column="33" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="PortfolioModel.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/js/models/PortfolioModel.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="414">
+              <caret line="32" column="0" lean-forward="true" selection-start-line="32" selection-start-column="0" selection-end-line="32" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="PortfolioView.ejs" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/tpl/PortfolioView.ejs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="395">
-              <caret line="22" column="57" lean-forward="true" selection-start-line="22" selection-start-column="57" selection-end-line="22" selection-end-column="57" />
+            <state relative-caret-position="108">
+              <caret line="6" column="0" lean-forward="false" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -120,28 +130,18 @@
       <file leaf-file-name="NavbarView.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js/views/NavbarView.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="468">
-              <caret line="53" column="45" lean-forward="false" selection-start-line="53" selection-start-column="45" selection-end-line="53" selection-end-column="45" />
+            <state relative-caret-position="447">
+              <caret line="81" column="42" lean-forward="true" selection-start-line="81" selection-start-column="42" selection-end-line="81" selection-end-column="42" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="AppRouter.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="AppRouter.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/js/routers/AppRouter.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="216">
-              <caret line="51" column="28" lean-forward="true" selection-start-line="51" selection-start-column="28" selection-end-line="51" selection-end-column="28" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="templates.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/js/utils/templates.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="441">
-              <caret line="21" column="18" lean-forward="false" selection-start-line="21" selection-start-column="18" selection-end-line="21" selection-end-column="18" />
+            <state relative-caret-position="452">
+              <caret line="66" column="44" lean-forward="false" selection-start-line="66" selection-start-column="44" selection-end-line="66" selection-end-column="44" />
               <folding />
             </state>
           </provider>
@@ -222,16 +222,17 @@
         <option value="$PROJECT_DIR$/tpl/HomeView.html" />
         <option value="$PROJECT_DIR$/tpl/NavbarView.html" />
         <option value="$PROJECT_DIR$/js/views/HomeView.js" />
-        <option value="$PROJECT_DIR$/js/models/UserModel.js" />
         <option value="$PROJECT_DIR$/tpl/PortfolioView.html" />
         <option value="$PROJECT_DIR$/js/utils/templates.js" />
-        <option value="$PROJECT_DIR$/index.html" />
         <option value="$PROJECT_DIR$/tpl/NavbarView.ejs" />
-        <option value="$PROJECT_DIR$/js/views/NavbarView.js" />
         <option value="$PROJECT_DIR$/js/app.js" />
-        <option value="$PROJECT_DIR$/js/views/PortfolioView.js" />
-        <option value="$PROJECT_DIR$/js/routers/AppRouter.js" />
+        <option value="$PROJECT_DIR$/index.html" />
+        <option value="$PROJECT_DIR$/js/views/NavbarView.js" />
         <option value="$PROJECT_DIR$/tpl/PortfolioView.ejs" />
+        <option value="$PROJECT_DIR$/js/views/PortfolioView.js" />
+        <option value="$PROJECT_DIR$/js/models/UserModel.js" />
+        <option value="$PROJECT_DIR$/js/models/PortfolioModel.js" />
+        <option value="$PROJECT_DIR$/js/routers/AppRouter.js" />
       </list>
     </option>
   </component>
@@ -253,8 +254,9 @@
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
   <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="1920" />
     <option name="width" value="1920" />
-    <option name="height" value="1054" />
+    <option name="height" value="1080" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -264,54 +266,17 @@
             <id />
           </State>
           <State>
-            <id>Abstraction issuesJava</id>
-          </State>
-          <State>
-            <id>CSS</id>
-          </State>
-          <State>
-            <id>Class metricsJava</id>
-          </State>
-          <State>
-            <id>Code quality toolsCSS</id>
-          </State>
-          <State>
-            <id>Code style issuesJava</id>
-          </State>
-          <State>
-            <id>Declaration redundancyJava</id>
-          </State>
-          <State>
-            <id>Error handlingJava</id>
-          </State>
-          <State>
             <id>GeneralJavaScript</id>
-          </State>
-          <State>
-            <id>JUnit issuesJava</id>
-          </State>
-          <State>
-            <id>Java</id>
           </State>
           <State>
             <id>JavaScript</id>
           </State>
-          <State>
-            <id>Method metricsJava</id>
-          </State>
-          <State>
-            <id>Naming conventionsJava</id>
-          </State>
-          <State>
-            <id>PHP</id>
-          </State>
-          <State>
-            <id>Security issuesJava</id>
-          </State>
-          <State>
-            <id>UndefinedPHP</id>
-          </State>
         </expanded-state>
+        <selected-state>
+          <State>
+            <id>JSJQueryEfficiency</id>
+          </State>
+        </selected-state>
       </profile-state>
     </entry>
   </component>
@@ -333,8 +298,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
-      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -406,6 +369,8 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
+      <pane id="Scratches" />
       <pane id="PackagesPane" />
     </panes>
   </component>
@@ -419,7 +384,7 @@
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.0" />
-    <property name="settings.editor.selected.configurable" value="JavaScript.Libraries" />
+    <property name="settings.editor.selected.configurable" value="Errors" />
     <property name="nodejs_interpreter_path" value="/usr/local/bin/node" />
     <property name="nodejs.protractor.protractor_package" value="" />
     <property name="add_unversioned_files" value="$PROJECT_DIR$/js/local.js" />
@@ -604,19 +569,20 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="0" width="1920" height="1054" extended-state="6" />
+    <frame x="1920" y="0" width="1920" height="1080" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3283582" sideWeight="0.51548946" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32780084" sideWeight="0.5176768" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32928064" sideWeight="0.49790043" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3379531" sideWeight="0.47645602" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1485623" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.15654951" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.21618743" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32780084" sideWeight="0.48232323" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -625,7 +591,6 @@
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3283582" sideWeight="0.48451054" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
@@ -678,14 +643,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/js/views/LeaderboardListView.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="189">
-          <caret line="9" column="32" lean-forward="false" selection-start-line="9" selection-start-column="32" selection-end-line="9" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/views/RiderView.js" />
     <entry file="file://$PROJECT_DIR$/js/routers/AppRouter.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="609">
@@ -1075,13 +1032,7 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/tpl/HomeView.html" />
-    <entry file="file://$PROJECT_DIR$/ratchet/ratchet.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="441">
-          <caret line="21" column="8" lean-forward="false" selection-start-line="21" selection-start-column="8" selection-end-line="21" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/ratchet/ratchet.css" />
     <entry file="file://$PROJECT_DIR$/google-services.json">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="378">
@@ -1134,13 +1085,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ratchet/ratchet.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="441">
-          <caret line="21" column="8" lean-forward="false" selection-start-line="21" selection-start-column="8" selection-end-line="21" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/ratchet/ratchet.css" />
     <entry file="file://$PROJECT_DIR$/tpl/HomeView.html" />
     <entry file="file://$PROJECT_DIR$/google-services.json">
       <provider selected="true" editor-type-id="text-editor">
@@ -1188,13 +1133,7 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/tpl/HomeView.html" />
-    <entry file="file://$PROJECT_DIR$/ratchet/ratchet.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="441">
-          <caret line="21" column="8" lean-forward="false" selection-start-line="21" selection-start-column="8" selection-end-line="21" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/ratchet/ratchet.css" />
     <entry file="file://$PROJECT_DIR$/google-services.json">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="378">
@@ -1241,13 +1180,7 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/tpl/HomeView.html" />
-    <entry file="file://$PROJECT_DIR$/ratchet/ratchet.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="441">
-          <caret line="21" column="8" lean-forward="false" selection-start-line="21" selection-start-column="8" selection-end-line="21" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/ratchet/ratchet.css" />
     <entry file="file://$PROJECT_DIR$/google-services.json">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="378">
@@ -1287,13 +1220,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ratchet/ratchet.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="441">
-          <caret line="21" column="8" lean-forward="false" selection-start-line="21" selection-start-column="8" selection-end-line="21" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/ratchet/ratchet.css" />
     <entry file="file://$PROJECT_DIR$/google-services.json">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="378">
@@ -1347,13 +1274,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ratchet/ratchet.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="441">
-          <caret line="21" column="8" lean-forward="false" selection-start-line="21" selection-start-column="8" selection-end-line="21" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/ratchet/ratchet.css" />
     <entry file="file://$PROJECT_DIR$/google-services.json">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="378">
@@ -1407,13 +1328,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ratchet/ratchet.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="441">
-          <caret line="21" column="8" lean-forward="false" selection-start-line="21" selection-start-column="8" selection-end-line="21" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/ratchet/ratchet.css" />
     <entry file="file://$PROJECT_DIR$/google-services.json">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="378">
@@ -1467,13 +1382,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ratchet/ratchet.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="441">
-          <caret line="21" column="8" lean-forward="true" selection-start-line="21" selection-start-column="8" selection-end-line="21" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/ratchet/ratchet.css" />
     <entry file="file://$PROJECT_DIR$/js/app.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="483">
@@ -1525,13 +1434,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ratchet/ratchet-theme-android.min.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="441">
-          <caret line="8" column="1909" lean-forward="false" selection-start-line="8" selection-start-column="1909" selection-end-line="8" selection-end-column="1909" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/ratchet/ratchet-theme-android.min.css" />
     <entry file="file://$PROJECT_DIR$/tpl/DashboardView.html" />
     <entry file="file://$PROJECT_DIR$/js/views/RequestListView.js" />
     <entry file="file://$PROJECT_DIR$/js/views/RiderView.js" />
@@ -1550,20 +1453,8 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ratchet/ratchet.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="487">
-          <caret line="303" column="0" lean-forward="true" selection-start-line="303" selection-start-column="0" selection-end-line="303" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ratchet/ratchet-theme-android.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="326">
-          <caret line="197" column="9" lean-forward="false" selection-start-line="197" selection-start-column="9" selection-end-line="197" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/ratchet/ratchet.css" />
+    <entry file="file://$PROJECT_DIR$/ratchet/ratchet-theme-android.css" />
     <entry file="file://$PROJECT_DIR$/js/models/OfferModel.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="558">
@@ -1706,14 +1597,6 @@
     <entry file="file://$PROJECT_DIR$/tpl/HomeView.html" />
     <entry file="file://$PROJECT_DIR$/tpl/bkupLoginView.html" />
     <entry file="file://$PROJECT_DIR$/tpl/NavbarView.html" />
-    <entry file="file://$PROJECT_DIR$/js/models/UserModel.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="252">
-          <caret line="12" column="9" lean-forward="false" selection-start-line="12" selection-start-column="9" selection-end-line="12" selection-end-column="9" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/9cba02a6-813c-4409-9ac3-716dbfb9fd7e/console.sql">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -1732,17 +1615,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/tpl/NavbarView.ejs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="408">
+        <state relative-caret-position="735">
           <caret line="35" column="54" lean-forward="false" selection-start-line="35" selection-start-column="54" selection-end-line="35" selection-end-column="54" />
-          <folding>
-            <element signature="n#style#0;n#a#0;n#div#0;n#!!top" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/js/views/HomeView.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="191">
+        <state relative-caret-position="882">
           <caret line="42" column="20" lean-forward="false" selection-start-line="42" selection-start-column="20" selection-end-line="42" selection-end-column="20" />
           <folding />
         </state>
@@ -1750,22 +1631,9 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-669">
+        <state relative-caret-position="1323">
           <caret line="63" column="28" lean-forward="false" selection-start-line="63" selection-start-column="28" selection-end-line="63" selection-end-column="28" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/app.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="318">
-          <caret line="129" column="28" lean-forward="true" selection-start-line="129" selection-start-column="28" selection-end-line="129" selection-end-column="28" />
-          <folding>
-            <element signature="e#9882#13591#0" expanded="false" />
-            <element signature="e#15804#16096#0" expanded="false" />
-            <element signature="e#16148#16656#0" expanded="false" />
-            <element signature="e#16689#16811#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1777,34 +1645,73 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js/views/PortfolioView.js">
+    <entry file="file://$PROJECT_DIR$/js/app.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="15" column="9" lean-forward="true" selection-start-line="15" selection-start-column="9" selection-end-line="15" selection-end-column="9" />
+        <state relative-caret-position="1528">
+          <caret line="218" column="0" lean-forward="true" selection-start-line="218" selection-start-column="0" selection-end-line="218" selection-end-column="0" />
+          <folding>
+            <element signature="n#!!block;n#setupPush#0" expanded="false" />
+            <element signature="e#4900#5668#0" expanded="false" />
+            <element signature="e#9882#13591#0" expanded="false" />
+            <element signature="e#15804#16096#0" expanded="false" />
+            <element signature="e#16148#16656#0" expanded="false" />
+            <element signature="e#16689#16811#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tpl/PortfolioView.ejs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="108">
+          <caret line="6" column="0" lean-forward="false" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/views/homeview_ref.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="441">
+          <caret line="105" column="33" lean-forward="false" selection-start-line="105" selection-start-column="33" selection-end-line="105" selection-end-column="33" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/models/UserModel.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="459">
+          <caret line="27" column="13" lean-forward="false" selection-start-line="27" selection-start-column="13" selection-end-line="27" selection-end-column="13" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/js/views/NavbarView.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="468">
-          <caret line="53" column="45" lean-forward="false" selection-start-line="53" selection-start-column="45" selection-end-line="53" selection-end-column="45" />
+        <state relative-caret-position="447">
+          <caret line="81" column="42" lean-forward="true" selection-start-line="81" selection-start-column="42" selection-end-line="81" selection-end-column="42" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/models/PortfolioModel.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="414">
+          <caret line="32" column="0" lean-forward="true" selection-start-line="32" selection-start-column="0" selection-end-line="32" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/views/PortfolioView.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="324">
+          <caret line="18" column="2" lean-forward="true" selection-start-line="18" selection-start-column="2" selection-end-line="18" selection-end-column="2" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/js/routers/AppRouter.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="216">
-          <caret line="51" column="28" lean-forward="true" selection-start-line="51" selection-start-column="28" selection-end-line="51" selection-end-column="28" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tpl/PortfolioView.ejs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="395">
-          <caret line="22" column="57" lean-forward="true" selection-start-line="22" selection-start-column="57" selection-end-line="22" selection-end-column="57" />
+        <state relative-caret-position="452">
+          <caret line="66" column="44" lean-forward="false" selection-start-line="66" selection-start-column="44" selection-end-line="66" selection-end-column="44" />
           <folding />
         </state>
       </provider>

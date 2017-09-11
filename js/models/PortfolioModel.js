@@ -3,7 +3,6 @@ app.models.Portfolio = Backbone.Model.extend({
         },
         urlRoot: config.restUrl + 'portfolio',
         localStorage: false,
-
         relations: [{
             type: Backbone.HasOne,
             key: 'user',
@@ -31,7 +30,6 @@ app.models.Portfolio = Backbone.Model.extend({
         }
     }
 );
-
 
 app.models.PortfolioCollection = Backbone.Collection.extend({
     model: app.models.Portfolio,
