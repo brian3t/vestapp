@@ -38,7 +38,7 @@ app.views.NavbarView = Backbone.View.extend({
         "click .logout": "logout"
     },
     remember_clicked: function () {
-        localStorage.setItem('remember', !$('#remember').prop('checked'));
+        localStorage.setItem('remember', $('#remember').prop('checked'));
         console.info('clicked');
     },
     login: function (e, suppress_toast) {
@@ -65,6 +65,7 @@ app.views.NavbarView = Backbone.View.extend({
         $("#sign_in_btn").attr("disabled", "disabled");
         $.post(config.restUrl + 'user/login', $('#login_form').serialize(), function (resp) {
             if (resp.status === 'ok') {
+                fapp.closePanel();
                 document.cookie = 'loginstring=' + $('#login_form').serialize();
                 app.cur_user.set({id: resp.id, username: $('#username').val(), password: $('#password').val()});
                 // app.cur_profile.set(resp.profile);
@@ -80,6 +81,9 @@ app.views.NavbarView = Backbone.View.extend({
                 setTimeout(fapp.closeModal, 1000);
                 var jqxhr = app.cur_user.fetch({
                     success: function () {
+                        if (typeof app.Portfolio_view === 'object'){
+                            app.Portfolio_view.render();
+                        }
                         app.prepare_collections();
                     }
                 });

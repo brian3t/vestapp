@@ -17,13 +17,13 @@ app.views.DashboardView = Backbone.View.extend({
     logout: function (e) {
         var self = this;
         app_confirm("Are you sure you want to log out?", function (response) {
-            if (response == true || response == 1) {
+            if (response === true || response == 1) {
                 app.reset_user();
                 self.back();
             }
             app.utils.misc.hide_popover();
             app.is_notification_active = false;
-        })
+        });
     },
 
     back: function (event) {

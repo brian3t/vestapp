@@ -3,10 +3,17 @@ app.views.PortfolioView = Backbone.View.extend({
         model: {},
         initialize: function () {
             this.model = app.cur_user.get('portfolio');
-            this.render();
+        },
+        self_update_model: function () {
+            console.info('app curuser synced');
+            this.model = app.cur_user.get('portfolio');
         },
         stock_list_view: {},
         render: function () {
+            this.self_update_model();
+            if (typeof this.model !== 'object' || !this.model) {
+                return this;
+            }
             this.$el.html(this.template(this.model.attributes));
             return this;
         },

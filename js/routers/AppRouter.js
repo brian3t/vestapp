@@ -46,12 +46,11 @@ app.routers.AppRouter = Backbone.Router.extend({
         // }
         app.slider.slidePage(app.homeView.$el);
         app.homeView.dom_ready();
-
     },
 
     portfolio: function () {
         app.Portfolio_view = new app.views.PortfolioView();
-        app.Portfolio_view.on(app.models.User, "update", app.Portfolio_view.self_update_model);
+        app.Portfolio_view.on(app.cur_user, "sync change", app.Portfolio_view.render);
         app.Portfolio_view.render();
         if (_.isObject(app.offer_collection)) {
             app.offer_collection.reset();

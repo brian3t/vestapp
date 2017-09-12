@@ -65,7 +65,7 @@ app.views.HomeView = Backbone.View.extend({
             this.$el.find('div#leaderboard_wrapper').html('<div class="text-center content-block-title" id="leaderboard_period">' + period + '</div>').append(this.leaderboard_list_view.render().el);
 
             if (IS_LOCAL){
-                fapp.loginScreen();
+                // fapp.loginScreen();
             }
         }
     },

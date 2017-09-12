@@ -1,4 +1,5 @@
-app.models.Portfolio = Backbone.Model.extend({
+app.models.Portfolio = Backbone.RelationalModel.extend({
+        idAttribute: 'user_id',
         initialize: function () {
         },
         urlRoot: config.restUrl + 'portfolio',
