@@ -20,7 +20,9 @@ app.routers.AppRouter = Backbone.Router.extend({
                 var current_view = Backbone.history.getFragment() === '' ? 'home' : Backbone.history.getFragment();
                 $('div.page').attr('current_view', current_view);
                 if (!app.navbar_view) {
-                    app.navbar_view = new app.views.NavbarView();
+                    app.navbar_view = new app.views.NavbarView(current_view);
+                } else {
+                    app.navbar_view.set_current_view(current_view);
                 }
                 $('.page').removeClass('whirl no-overlay traditional');
                 $('div.navbar').html(app.navbar_view.el);

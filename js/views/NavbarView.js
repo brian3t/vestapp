@@ -6,8 +6,17 @@ app.views.NavbarView = Backbone.View.extend({
     set_current_tab: function (current_tab) {
         this.current_tab = current_tab;
     },
-    initialize: function () {
+    set_current_view: function (current_view) {
+        if (current_view) {
+            if (current_view === 'home') {
+                current_view = 'leaderboard';
+            }
+            this.$el.find('#current_page_title').html(s.titleize(current_view));
+        }
+    },
+    initialize: function (current_view) {
         this.render();
+        this.set_current_view(current_view);
     },
 
     render: function () {
@@ -61,7 +70,8 @@ app.views.NavbarView = Backbone.View.extend({
             }
             else {
                 localStorage.setItem('password', $('#password').val());
-            }        }
+            }
+        }
         $("#sign_in_btn").attr("disabled", "disabled");
         $.post(config.restUrl + 'user/login', $('#login_form').serialize(), function (resp) {
             if (resp.status === 'ok') {
@@ -81,7 +91,7 @@ app.views.NavbarView = Backbone.View.extend({
                 setTimeout(fapp.closeModal, 1000);
                 var jqxhr = app.cur_user.fetch({
                     success: function () {
-                        if (typeof app.Portfolio_view === 'object'){
+                        if (typeof app.Portfolio_view === 'object') {
                             app.Portfolio_view.render();
                         }
                         app.prepare_collections();
