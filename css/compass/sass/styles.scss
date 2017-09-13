@@ -709,28 +709,7 @@ form .whiteTextInput::-moz-placeholder {
 form .whiteTextInput:-ms-input-placeholder {
   color: white !important;
 }
-#view_switcher.segmented-control {
-  border: 0 !important;
-  border-radius: 0 !important;
-}
-#view_switcher.segmented-control .control-item {
-  line-height: 1.5 !important;
-}
-#view_switcher.segmented-control .control-item.active {
-  background-color: #293063 !important;
-  color: #fff !important;
-  font-weight: bold !important;
-}
-.table-view-cell > .badge.left {
-  left: 15px;
-  right: inherit;
-  + span {
-    margin-left: 38px;
-  }
-}
-.table-view-cell span.after_badge {
-  margin-left: 7px;
-}
+
 .tab-bar-content {
   z-index: -1;
 }*/
@@ -749,3 +728,5 @@ form .whiteTextInput:-ms-input-placeholder {
 div.page {
   position: inherit;
 }
+.list-block{margin-top: 8px;}
+.content-block-title{margin-top: 8px}

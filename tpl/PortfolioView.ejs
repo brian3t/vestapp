@@ -1,5 +1,5 @@
 <div>
-	<div class="content-block">
+	<div class="content-block-title">
 		<p><a href="#" data-sortable=".sortable" class="toggle-sortable">Sort stock list</a></p>
 	</div>
 	<div class="list-block sortable">
@@ -14,37 +14,13 @@
 						<div class="item-title row col-80"><span class="col-40"><%= stock.model.symbol %></span><span
 									class="col-60">$<%= stock.model.last_sale %></span></div>
 						<div class="item-after"><span
-									class="badge"><%= transaction.change_since_last_traded_percent %><%= (transaction.change_since_last_traded_percent > 0) ? '▲' : '▼' %></span>
+									class="badge"><%= stock.transaction.change_since_last_traded_percent %>%<%= (stock.transaction.change_since_last_traded_percent > 0) ? '▲' : '▼' %></span>
 						</div>
 					</div>
 				</div>
 				<div class="sortable-handler"></div>
 			</li>
 			<% }); %>
-			<li>
-				<div class="item-content">
-					<div class="item-media">
-						<button class="button sell">Sell</button>
-					</div>
-					<div class="item-inner row">
-						<div class="item-title row col-80"><span class="col-40">AAPL</span><span class="col-60">$10</span></div>
-						<div class="item-after"><span class="badge">5▼</span></div>
-					</div>
-				</div>
-				<div class="sortable-handler"></div>
-			</li>
-			<li>
-				<div class="item-content">
-					<div class="item-media">
-						<button class="button sell">Sell</button>
-					</div>
-					<div class="item-inner row">
-						<div class="item-title row col-80"><span class="col-40">IBM</span><span class="col-60">$10</span></div>
-						<div class="item-after"><span class="badge gain">200▲</span></div>
-					</div>
-				</div>
-				<div class="sortable-handler"></div>
-			</li>
 		</ul>
 	</div>
 </div>

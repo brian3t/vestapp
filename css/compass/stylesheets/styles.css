@@ -706,56 +706,45 @@ form .whiteTextInput::-moz-placeholder {
 form .whiteTextInput:-ms-input-placeholder {
   color: white !important;
 }
-#view_switcher.segmented-control {
-  border: 0 !important;
-  border-radius: 0 !important;
-}
-#view_switcher.segmented-control .control-item {
-  line-height: 1.5 !important;
-}
-#view_switcher.segmented-control .control-item.active {
-  background-color: #293063 !important;
-  color: #fff !important;
-  font-weight: bold !important;
-}
-.table-view-cell > .badge.left {
-  left: 15px;
-  right: inherit;
-  + span {
-    margin-left: 38px;
-  }
-}
-.table-view-cell span.after_badge {
-  margin-left: 7px;
-}
+
 .tab-bar-content {
   z-index: -1;
 }*/
-/* line 737, ../sass/styles.scss */
+/* line 716, ../sass/styles.scss */
 .text-bold {
   font-weight: bold;
 }
 
 /* Framework7 */
-/* line 739, ../sass/styles.scss */
+/* line 718, ../sass/styles.scss */
 .panel {
   background-color: #eee;
 }
 
 /* END Framework7 */
-/* line 744, ../sass/styles.scss */
+/* line 723, ../sass/styles.scss */
 .text_center {
   text-align: center;
 }
 
-/* line 748, ../sass/styles.scss */
+/* line 727, ../sass/styles.scss */
 .badge.gain {
   background-color: green;
 }
 
-/* line 749, ../sass/styles.scss */
+/* line 728, ../sass/styles.scss */
 div.page {
   position: inherit;
+}
+
+/* line 731, ../sass/styles.scss */
+.list-block {
+  margin-top: 8px;
+}
+
+/* line 732, ../sass/styles.scss */
+.content-block-title {
+  margin-top: 8px;
 }
 
 /*# sourceMappingURL=styles.css.map */
