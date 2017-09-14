@@ -27,6 +27,8 @@ app.routers.AppRouter = Backbone.Router.extend({
                 $('.page').removeClass('whirl no-overlay traditional');
                 $('div.navbar').html(app.navbar_view.el);
                 app.navbar_view.dom_ready();
+                $('a.tab-link').removeClass('active');
+                $('a.tab-link.' + current_view).addClass('active');
                 return result;
             };
         })(app.slider.slidePage);
